@@ -1,21 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatSidenavModule, MatSidenavContainer, MatSidenavContent, MatToolbarModule } from '@angular/material'
+import { MatSidenavModule, MatToolbarModule, MatListModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatGridListModule } from '@angular/material'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,    
     MatSidenavModule,
-    MatSidenavContainer,
-    MatSidenavContent,
     MatToolbarModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatGridListModule
   ],
   exports: [
     MatSidenavModule,
-    MatSidenavContainer,
-    MatSidenavContent,
     MatToolbarModule,
+    BrowserAnimationsModule,
+    MatListModule,    
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatGridListModule
   ],
   declarations: []
 })

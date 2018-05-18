@@ -1,8 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-sidenav-container>
-  <mat-sidenav>Start</mat-sidenav>
+<app-header></app-header>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened">
+      <mat-list role="list">
+          <mat-list-item role="listitem"><a routerLink="registrar">Inicio</a></mat-list-item>
+          <mat-list-item role="listitem"><a routerLink="registrar">registrar</a></mat-list-item>
+          <mat-list-item role="listitem"><a routerLink="consultar">Consultar</a></mat-list-item>
+          <mat-list-item role="listitem"><a routerLink="movimientos">Movimientos</a></mat-list-item>
+          <mat-list-item role="listitem"><a routerLink="reportes">Reportes</a></mat-list-item>
+          <mat-list-item role="listitem"><a routerLink="autoridad">Autoridad</a></mat-list-item>
+          <mat-list-item role="listitem"><a routerLink="admin">Admin</a></mat-list-item>
+          <mat-list-item role="listitem">Salir</mat-list-item>
+        </mat-list>
+  </mat-sidenav>
   <mat-sidenav-content>
-    <app-header></app-header>
+    <button (click)="sidenav.toggle()">|||||</button>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
