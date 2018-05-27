@@ -1,9 +1,16 @@
-.example-container {
+   .chips-container{
+     text-align: center;
+     }
+  .example-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
   }
-  
   .example-container > * {
-    width: 60%;
+    width: 40%;
   }
+  .button-container{
+
+
+   text-align: center;    
+}

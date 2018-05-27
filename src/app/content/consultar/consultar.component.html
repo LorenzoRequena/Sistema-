@@ -1,13 +1,32 @@
+
 <div class="example-container">
+  <div class="chips-container">
+    <mat-chip-list>
+      <mat-chip color="warn" selected="true">Por numero de cedula</mat-chip>
+      <mat-chip color="warn" selected="true">Por numero de expediente</mat-chip>
+    </mat-chip-list>
+  </div>
     <mat-form-field>
-      <input matInput placeholder="Input">
+      <input matInput placeholder="Nro de expediente">
     </mat-form-field>
   
     <mat-form-field>
-        <input matInput placeholder="Input">
-      </mat-form-field>
+        <input matInput placeholder="Status">
+    </mat-form-field>
    
       <mat-form-field>
-          <input matInput placeholder="Input">
+          <input matInput placeholder="Ubicación">
         </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Observación">
+        </mat-form-field>
+  </div>
+
+  <div class="button-container">
+  
+        <button mat-raised-button color="warn">Consultar</button>
+        <button mat-raised-button color="warn">Salir</button>  
+    
+    
   </div>

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
@@ -13,6 +12,9 @@ import { ReportesComponent } from './content/reportes/reportes.component';
 import { AutoridadComponent } from './content/autoridad/autoridad.component';
 import { AdminComponent } from './content/admin/admin.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,18 @@ import { AppRoutingModule } from './/app-routing.module';
     MovimientosComponent,
     ReportesComponent,
     AutoridadComponent,
-    AdminComponent
+    AdminComponent,
+    
   ],
   imports: [
     BrowserModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    CommonModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent],

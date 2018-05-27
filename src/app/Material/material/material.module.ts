@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { MatSidenavModule, MatToolbarModule, MatListModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatGridListModule } from '@angular/material'
+import {MatButtonModule} from '@angular/material/button';
+import {MatChipsModule} from '@angular/material/chips';
+import { MatSidenavModule, MatToolbarModule,
+   MatListModule, MatFormFieldModule
+   , MatInputModule, MatSelectModule, MatGridListModule,MatIconModule } from '@angular/material'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -14,7 +17,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule,
+    MatChipsModule,
+    MatIconModule
+
   ],
   exports: [
     MatSidenavModule,
@@ -24,7 +31,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule,
+    MatChipsModule,
+    MatIconModule
   ],
   declarations: []
 })
