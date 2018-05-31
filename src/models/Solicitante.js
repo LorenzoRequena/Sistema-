@@ -6,6 +6,7 @@ var SolicitanteSc = new mongoose.Schema({
     nombre: String,
     cedula: String,
     correo: String,
+    apellido: String,
     direccion: String,
     telefono: String,
   });

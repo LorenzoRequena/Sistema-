@@ -1,20 +1,36 @@
 
-    <div *ngIf="segundaVista; else firstView">
-      <h2>Hello world</h2>
-      <button (click)="updateSegundaVista()">back</button>
+    <div *ngIf="secondView; else firstView">
+       <form [formGroup]="solicitudForm" class="group-container">
+         <mat-form-field >
+            <input matInput formControlName="expediente" placeholder="Nro de expediente ">
+         </mat-form-field>
+        
+         <mat-form-field>
+            <div class="form-select">
+                <mat-select formControlName="type" placeholder="Propósito">
+                <mat-option value="leg1">Legalizacion de titulos</mat-option>
+                <mat-option value="leg2">Legalizacion de notas</mat-option>
+                <mat-option value="leg2">Legalizacion de ----</mat-option>
+                </mat-select>
+            </div>  
+        </mat-form-field>
+
+       </form>
+      <button (click)="updateSecondView()">back</button>
     </div>
      
      <ng-template #firstView>
+            <mat-card class="register-example" >Registrar Documento</mat-card>
         <form [formGroup]="registerForm">
             <mat-grid-list cols="2" rowHeight="6:1">
                 <mat-grid-tile>
                     <mat-form-field>
-                        <input matInput formControlName="nombre" placeholder="Nombre">
+                        <input matInput formControlName="nombre" placeholder="Nombres">
                         </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field>
-                        <input matInput formControlName="cedula" placeholder="Cedula">
+                        <input matInput formControlName="apellido" placeholder="Apellidos">
                         </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>
@@ -22,22 +38,10 @@
                         <input matInput formControlName="correo" placeholder="Correo">
                         </mat-form-field>
                 </mat-grid-tile>
-                <!-- <mat-grid-tile>
-                    <mat-form-field>
-                        <div class="form-select">
-                         <mat-select formControlName="type" placeholder="Propósito">
-                            <mat-option value="leg1">Legalizacion de titulos</mat-option>
-                            <mat-option value="leg2">Legalizacion de notas</mat-option>
-                            <mat-option value="leg2">Legalizacion de ----</mat-option>
-                          </mat-select>
-                        
-                      </div>  
-                      </mat-form-field>
-                </mat-grid-tile> -->
           
                 <mat-grid-tile>
                     <mat-form-field>
-                      <input matInput formControlName="apellido" placeholder="Apellido">
+                      <input matInput formControlName="cedula" placeholder="Cedula">
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>

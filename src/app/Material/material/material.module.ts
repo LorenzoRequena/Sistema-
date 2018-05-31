@@ -6,7 +6,7 @@ import { MatSidenavModule, MatToolbarModule,
    MatListModule, MatFormFieldModule
    , MatInputModule, MatSelectModule, MatGridListModule,MatIconModule } from '@angular/material'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   imports: [
     CommonModule,    
@@ -20,7 +20,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatGridListModule,
     MatButtonModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
 
   ],
   exports: [

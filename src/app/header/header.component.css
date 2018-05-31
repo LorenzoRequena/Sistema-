@@ -1,6 +1,10 @@
 *{
-    background: #FF2700;
+    background:red;
 }
-.put-right {
+div .put-right {
     padding-left: 70%;
+}
+ 
+.span-color{
+    color: #fff;
 }

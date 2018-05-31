@@ -7,13 +7,15 @@ import { ReportesComponent } from './content/reportes/reportes.component';
 import { AdminComponent } from './content/admin/admin.component';
 import { AutoridadComponent } from './content/autoridad/autoridad.component';
 
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/registrar', pathMatch: 'full' },
   { path: 'registrar', component: RegistrarComponent },
   { path: 'consultar', component: ConsultarComponent },
   { path: 'movimientos', component: MovimientosComponent },
-  { path: 'reporte', component: ReportesComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'reportes',    component: ReportesComponent },
+  { path: 'admin',     component: AdminComponent },
   { path: 'autoridad', component: AutoridadComponent }
 ];
 

@@ -21,7 +21,7 @@ export class RegistrarComponent implements OnInit {
     expediente: new FormControl(''),
   })
   disableB: boolean = false;
-  segundaVista :boolean=false;
+  secondView :boolean = false;
 
 
   constructor(private register: RegistrarService) { }
@@ -30,18 +30,19 @@ export class RegistrarComponent implements OnInit {
   }
 
   save() {
-    this.disableB = true;
-    this.register.saveSolicitante(this.registerForm.value).subscribe(res => {
-      console.log(res);
-      this.updateSegundaVista();
-      this.registerForm.reset()
+      this.disableB = true;
+      this.register.saveSolicitante(this.registerForm.value).subscribe(resp => {
+      console.log(resp);
+      this.updateSecondView();
+      this.secondView=true;
+      this.registerForm.reset();
       this.disableB = false;
     })
    // console.log(this.registerForm.value);
-    
   }
-  updateSegundaVista() {
-    this.segundaVista = !this.updateSegundaVista;
+  updateSecondView() {
+
+    this.secondView = !this.updateSecondView
   }
 
 }
