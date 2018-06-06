@@ -1,66 +1,55 @@
 
-    <div *ngIf="secondView; else firstView">
-       <form [formGroup]="solicitudForm" class="group-container">
-         <mat-form-field >
-            <input matInput formControlName="expediente" placeholder="Nro de expediente ">
-         </mat-form-field>
-        
-         <mat-form-field>
-            <div class="form-select">
-                <mat-select formControlName="type" placeholder="Propósito">
-                <mat-option value="leg1">Legalizacion de titulos</mat-option>
-                <mat-option value="leg2">Legalizacion de notas</mat-option>
-                <mat-option value="leg2">Legalizacion de ----</mat-option>
-                </mat-select>
-            </div>  
-        </mat-form-field>
 
-       </form>
-      <button (click)="updateSecondView()">back</button>
-    </div>
-     
-     <ng-template #firstView>
-            <mat-card class="register-example" >Registrar Documento</mat-card>
+<mat-card class="register-example" >Registrar Documento</mat-card>
+
+
+<div>
         <form [formGroup]="registerForm">
-            <mat-grid-list cols="2" rowHeight="6:1">
-                <mat-grid-tile>
-                    <mat-form-field>
-                        <input matInput formControlName="nombre" placeholder="Nombres">
+                <mat-grid-list cols="2" rowHeight="6:1">
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <input matInput formControlName="nombre" placeholder="Nombres">
+                            </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <input matInput formControlName="apellido" placeholder="Apellidos">
+                            </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <input matInput formControlName="correo" placeholder="Correo">
+                            </mat-form-field>
+                    </mat-grid-tile>
+              
+                    <mat-grid-tile>
+                        <mat-form-field>
+                          <input matInput formControlName="cedula" placeholder="Cedula">
                         </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-form-field>
-                        <input matInput formControlName="apellido" placeholder="Apellidos">
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <div class="form-select">
+                                <mat-select formControlName="type" placeholder="Propósito">
+                                <mat-option value="leg1">Legalizacion de titulos</mat-option>
+                                <mat-option value="leg2">Legalizacion de notas</mat-option>
+                                <mat-option value="leg2">Legalizacion de constancia de primaria</mat-option>
+                                </mat-select>
+                            </div>  
                         </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-form-field>
-                        <input matInput formControlName="correo" placeholder="Correo">
+                    </mat-grid-tile>
+              
+                    <mat-grid-tile>        
+                        <mat-form-field>
+                          <input matInput formControlName="telefono" placeholder="Telefono">
                         </mat-form-field>
-                </mat-grid-tile>
-          
-                <mat-grid-tile>
-                    <mat-form-field>
-                      <input matInput formControlName="cedula" placeholder="Cedula">
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-form-field>
-                      <input matInput formControlName="direccion" placeholder="Direccion">
-                    </mat-form-field>
-                </mat-grid-tile>
-          
-                <mat-grid-tile>        
-                    <mat-form-field>
-                      <input matInput formControlName="telefono" placeholder="Telefono">
-                    </mat-form-field>
-                </mat-grid-tile>
-          
-            </mat-grid-list>
-        </form>
-      
+                    </mat-grid-tile>
+              
+                </mat-grid-list>
+            </form> 
+</div>
+                 
         
-          <div class="example-button">
+            <div class="example-button">
               <button mat-raised-button (click)="save()" color="warn" [disabled]="disableB">Registrar</button>
             </div>
-    </ng-template>

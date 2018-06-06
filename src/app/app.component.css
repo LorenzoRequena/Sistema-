@@ -7,8 +7,12 @@
     left: 0;
     right: 0;
     background: #eee;
+    
 }
 .mat-sidenav {
     width: 20%;
     /* : red darken; */
+}
+a {
+  text-decoration: none;  
 }

@@ -1,6 +1,12 @@
 .example-container{
     text-align: center;
 }
-.example-button{
+
+.card{
     text-align: center;
+    width: 40%;
+    margin-left: 26%;
+    color: #fff;
+    background: red;
+
 }

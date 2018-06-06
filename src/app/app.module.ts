@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -37,10 +39,13 @@ import {MatCardModule} from '@angular/material/card';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-  MatCardModule
+  MatCardModule,
+  MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   //schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule { 
+
+}

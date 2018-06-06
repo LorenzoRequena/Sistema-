@@ -1,19 +1,22 @@
-<div *ngIf="secondView;else firstView">
-   <h2>Hello World</h2>
-   <button (click)="updateSeconView()">Back</button>
-</div>
 
-<ng-template #firstView>
-        <div class="example-container">
-                <mat-form-field>
+    
+       <mat-card class="card" >Mover Documento</mat-card>
+    
+    <div class="example-container">
+          
+                  <mat-form-field>
                   <input matInput placeholder="Nro de expediente">
-                </mat-form-field>
-              </div>
-             <div class="example-button">
-                <button mat-raised-button (click)="search()" color="warn" [disabled]="disableB">Buscar</button>
-            </div>
+                  </mat-form-field>
+                  
+                  <div class="example-button">
+                  <button mat-raised-button (click)="search()" color="warn" [disabled]="disableB">Buscar</button>
+                  </div>
+                 
+                
+                
+      </div>
 
 
-</ng-template>
+
 
 

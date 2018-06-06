@@ -13,16 +13,7 @@ export class MovimientosComponent implements OnInit {
 
   ngOnInit() {
   }
-  search(){
-  this.disableB=true;(res => {
-    console.log(res);
-    console.log("Its working");
-  this.updateSecondView();
-  this.disableB=false;
-  })
-  
-  }
-  updateSecondView():void{
-    this.secondView = !this.updateSecondView;
-  }
+  search(){}
+
+
 }
