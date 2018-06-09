@@ -15,8 +15,6 @@ import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -39,8 +37,7 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-  MatCardModule,
-  MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

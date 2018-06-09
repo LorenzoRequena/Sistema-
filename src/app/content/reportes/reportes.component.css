@@ -1,0 +1,12 @@
+.card{
+   background: red;
+   color: #fff;
+   text-align: center; 
+   width: 30%;
+   margin-left: 33%;
+}
+
+.chips-container{
+  margin-left: 31%;
+  margin-top: 6%;
+}

@@ -10,9 +10,16 @@
     
 }
 .mat-sidenav {
-    width: 20%;
+    width: 15%;
     /* : red darken; */
 }
 a {
   text-decoration: none;  
+  margin-left: 10%;
+}
+.left{
+margin-left: 5%
+}
+.material-icons{
+    color: red;
 }

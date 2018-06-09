@@ -7,6 +7,11 @@ import { MatSidenavModule, MatToolbarModule,
    , MatInputModule, MatSelectModule, MatGridListModule,MatIconModule } from '@angular/material'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+
+
+
+
 @NgModule({
   imports: [
     CommonModule,    
@@ -21,7 +26,9 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatChipsModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
+    
 
   ],
   exports: [
@@ -35,7 +42,11 @@ import {MatCardModule} from '@angular/material/card';
     MatGridListModule,
     MatButtonModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatTableModule
+   
+    
   ],
   declarations: []
 })
