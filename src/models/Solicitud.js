@@ -6,7 +6,9 @@ var SolicitudSc = new mongoose.Schema({
     type: String,
     status: String,
     nota: String,
-    solicitante_id: String
+    solicitante_id: String,
+    nroexpediente: String
+    
   });
 
   module.exports = mongoose.model('Solicitud', SolicitudSc);

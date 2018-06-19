@@ -21,10 +21,12 @@
     align-items: center;
     padding-bottom: 10%;
   }
-.register-example{
+ div .register-example{
   text-align: center;
   background: red;
-   margin: 10px 30%;
-    color: white;
+  color: white;
+  width: 32%;
+  margin-left: 31%;
+  margin-bottom: 5%;
 
 }

@@ -2,24 +2,36 @@
 
 .example-container {
     position: absolute;
-    top: 70px;
+    top: 69px;
     bottom: 0;
     left: 0;
     right: 0;
-    background: #eee;
+    background: #fff;
+
     
 }
 .mat-sidenav {
     width: 15%;
-    /* : red darken; */
+    background: #F7F6F6;
+    
 }
 a {
   text-decoration: none;  
   margin-left: 10%;
+  color:black;
+  font-family: arial;
+    font-size: 18px;
 }
+
 .left{
-margin-left: 5%
+margin-left: 5%;
+margin-right: 5%;
 }
-.material-icons{
+.material-icons {
     color: red;
+}
+
+.hoverClass:hover{
+   background:  #FF5333;
+
 }

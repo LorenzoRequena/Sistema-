@@ -8,7 +8,8 @@ import { RegistrarService } from './registrar.service';
   styleUrls: ['./registrar.component.css']
 })
 export class RegistrarComponent implements OnInit {
-  registerForm = new FormGroup({
+     
+    registerForm = new FormGroup({
     nombre: new FormControl(''),
     apellido: new FormControl(''),
     cedula: new FormControl(''),

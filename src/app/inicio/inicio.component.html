@@ -1,0 +1,38 @@
+<mat-card class="consult-example" >Consultar Documento</mat-card>
+
+<div class="example-container">
+  <div class="chips-container">
+   <mat-chip-list>
+    <mat-chip color="warn" selected="true">Por numero de cedula</mat-chip>
+    <mat-chip color="warn" selected="true">Por numero de expediente</mat-chip>
+  </mat-chip-list> 
+
+    </div>
+
+    <div class="formField-example">
+       <mat-form-field >
+       <input class="form-example" [(ngModel)]="username" matInput placeholder="Nombre de usuario">
+       </mat-form-field>
+       <mat-form-field >
+        <input class="form-example" [(ngModel)]="password" matInput placeholder="contraseña">
+        </mat-form-field>
+
+        
+        <mat-select [(ngModel)]="rol"  placeholder="Rol">
+          <mat-option value="leg1">Registrador</mat-option>
+          <mat-option value="leg2">Consultor</mat-option>
+          <mat-option value="leg2">Movimiento</mat-option>
+          </mat-select>
+
+    
+
+    </div>
+
+        <div class="button-container">
+          <button mat-raised-button color="warn" (click)="saveUser()">Crear</button>
+         
+         </div>
+   
+      </div>
+
+

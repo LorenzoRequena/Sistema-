@@ -6,11 +6,15 @@ import { MovimientosComponent } from './content/movimientos/movimientos.componen
 import { ReportesComponent } from './content/reportes/reportes.component';
 import { AdminComponent } from './content/admin/admin.component';
 import { AutoridadComponent } from './content/autoridad/autoridad.component';
+import { InicioComponent } from './inicio/inicio.component';
+
+
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/registrar', pathMatch: 'full' },
+   {path: 'login', component: InicioComponent},
   { path: 'registrar', component: RegistrarComponent },
   { path: 'consultar', component: ConsultarComponent },
   { path: 'movimientos', component: MovimientosComponent },

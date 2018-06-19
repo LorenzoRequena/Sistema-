@@ -11,12 +11,12 @@
 
     <div class="formField-example">
        <mat-form-field >
-       <input class="form-example" matInput placeholder="Nro de expediente">
+       <input class="form-example" [(ngModel)]="cedula" matInput placeholder="Nro de expediente">
        </mat-form-field>
     </div>
 
         <div class="button-container">
-          <button mat-raised-button color="warn">Consultar</button>
+          <button mat-raised-button color="warn" (click)="search()">Consultar</button>
          
          </div>
    

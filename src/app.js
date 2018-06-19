@@ -3,8 +3,9 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-
+var session= require('express-session');
 var book = require('./routes/solicitantes');
+var users= require('./routes/user.js');
 var app = express();
 
 var mongoose = require('mongoose');
@@ -16,9 +17,16 @@ mongoose.connect('mongodb://localhost/zona-edu', { promiseLibrary: require('blue
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
+app.use(session({
+  secret: 'work hard',
+  resave: true,
+  saveUninitialized: false
+}));
 app.use(express.static(path.join(__dirname, '../dist/Sistema')));
 app.use('/solicitantes', express.static(path.join(__dirname, '../dist/Sistema')));
 app.use('/solicitante', book);
+app.use('/user',users)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

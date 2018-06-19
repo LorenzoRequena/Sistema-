@@ -10,12 +10,18 @@ import { Observable, Subject } from 'rxjs';
 export class ConsultarComponent implements OnInit {
   
 
-  constructor() { }
-
+  constructor(private consultar:ConsultarService) { }
+  cedula :any;
   ngOnInit() {
 
   }
 
   search(){
+   this.consultar.searchSolicitantes(this.cedula).subscribe(resp =>{
+     console.log(resp);
+     
+   })
+
+
   }
 }

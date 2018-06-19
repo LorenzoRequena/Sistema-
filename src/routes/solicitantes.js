@@ -43,4 +43,11 @@ router.delete('/:id', function(req, res, next) {
   });
 });
 
+router.get('/bycedula/:cedula', function(req, res, next) {
+ 
+  Solicitante.find({cedula:req.params.cedula}, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
 module.exports = router;

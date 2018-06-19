@@ -15,6 +15,12 @@ import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { InicioComponent } from './inicio/inicio.component';
+import { BorrarComponent } from './content/borrar/borrar.component';
+import { ModificarComponent } from './content/modificar/modificar.component';
+
+
+
 
 
 @NgModule({
@@ -27,6 +33,11 @@ import { CommonModule } from '@angular/common';
     ReportesComponent,
     AutoridadComponent,
     AdminComponent,
+    InicioComponent,
+    BorrarComponent,
+    ModificarComponent
+   
+  
     
   ],
   imports: [

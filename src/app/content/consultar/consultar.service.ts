@@ -8,7 +8,8 @@ import {Observable} from 'rxjs';
 export class ConsultarService {
 
   constructor(private http: HttpClient) { }
-  searchSolicitante(data:any):Observable<any>{
-    return this.http.post('/solicitud',data);
+  searchSolicitantes(cedula:any):Observable<any>{
+    console.log(cedula);
+    return this.http.get('/solicitante/bycedula/' + cedula);
   }
 }
