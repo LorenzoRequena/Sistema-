@@ -14,11 +14,17 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
   }
-
+   
+  loginUser(){
+    this.login.loginUser({logusername:this.username,logpassword:this.password}).subscribe(resp =>{
+      console.log(resp);
+   })
+   
+   }
   saveUser(){
    this.login.saveUser({username:this.username,password:this.password,rol:this.rol}).subscribe(resp =>{
       console.log(resp);
    })
-       
+          
   }
 }
