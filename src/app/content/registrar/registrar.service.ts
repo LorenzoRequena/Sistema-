@@ -9,6 +9,6 @@ export class RegistrarService {
 
   constructor(private http: HttpClient) { }
   saveSolicitante(data: any): Observable<any> {
-    return this.http.post('/solicitante', data)
+    return this.http.post('/solicitudes', data)
   }
 }

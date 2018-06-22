@@ -10,13 +10,19 @@ router.get('/', function(req, res, next) {
     res.json(products);
   });
 });
-
 /* GET SINGLE Solicitante BY ID */
 router.get('/:id', function(req, res, next) {
   Solicitante.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
+});
+
+router.get('/last', function(req, res, next) {  
+  Solicitante.findOne({$query: {}, $orderby: {$natural : -1}}, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  })
 });
 
 /* SAVE Solicitante */

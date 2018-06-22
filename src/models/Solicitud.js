@@ -6,10 +6,13 @@ var SolicitudSc = new mongoose.Schema({
     proposito: String,
     localizacion: String,
     observacion: String,
-    solicitante_id: String,
     encargado:String,
-    nroexpediente: String
-    
+    expediente: String
+    nombre: String,
+    cedula: String,
+    correo: String,
+    apellido: String,
+    telefono: String,
   });
 
   module.exports = mongoose.model('Solicitud', SolicitudSc);

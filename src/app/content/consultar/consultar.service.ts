@@ -10,6 +10,6 @@ export class ConsultarService {
   constructor(private http: HttpClient) { }
   searchSolicitantes(cedula:any):Observable<any>{
     console.log(cedula);
-    return this.http.get('/solicitante/bycedula/' + cedula);
+    return this.http.get('/solicitudes/bycedula/' + cedula);
   }
 }

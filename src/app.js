@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var session= require('express-session');
-var book = require('./routes/solicitantes');
+var solicitud = require('./routes/solicitudes');
 var users= require('./routes/user.js');
 var app = express();
 
@@ -23,8 +23,8 @@ app.use(session({
   saveUninitialized: false
 }));
 app.use(express.static(path.join(__dirname, '../dist/Sistema')));
-app.use('/solicitantes', express.static(path.join(__dirname, '../dist/Sistema')));
-app.use('/solicitante', book);
+app.use('/home', express.static(path.join(__dirname, '../dist/Sistema')));
+app.use('/solicitudes', solicitud);
 app.use('/user',users)
 
 
