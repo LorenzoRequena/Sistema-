@@ -8,6 +8,8 @@ import { MatSidenavModule, MatToolbarModule,
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material';
+
 
 
 
@@ -27,7 +29,8 @@ import {MatTableModule} from '@angular/material/table';
     MatChipsModule,
     MatIconModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
     
 
   ],
@@ -44,8 +47,8 @@ import {MatTableModule} from '@angular/material/table';
     MatChipsModule,
     MatIconModule,
     MatCardModule,
-    MatTableModule
-   
+    MatTableModule,
+    MatPaginatorModule
     
   ],
   declarations: []

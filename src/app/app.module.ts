@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
 import { MaterialModule } from './Material/material/material.module';
-import { MatSidenavContainer, MatSidenavModule } from '@angular/material';
 import { RegistrarComponent } from './content/registrar/registrar.component';
 import { ConsultarComponent } from './content/consultar/consultar.component';
 import { MovimientosComponent } from './content/movimientos/movimientos.component';
@@ -33,6 +32,7 @@ import { InicioComponent } from './inicio/inicio.component';
     AutoridadComponent,
     AdminComponent,
     InicioComponent
+
    
   
     
@@ -44,7 +44,7 @@ import { InicioComponent } from './inicio/inicio.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule,
+    CommonModule
 
   ],
   providers: [],

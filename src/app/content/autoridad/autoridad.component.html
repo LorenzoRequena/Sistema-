@@ -1,3 +1,23 @@
-<p>
-  autoridad works!
-</p>
+<mat-card class="consult-example" >Consultar Documento por la  Autoridad</mat-card>
+
+<div class="example-container">
+  <div class="chips-container">
+   <mat-chip-list>
+    <mat-chip color="warn" selected="true">Por numero de cedula</mat-chip>
+    <mat-chip color="warn" selected="true">Por numero de expediente</mat-chip>
+  </mat-chip-list> 
+
+    </div>
+
+    <div class="formField-example">
+       <mat-form-field >
+       <input class="form-example" [(ngModel)]="cedula" matInput placeholder="Nro de Cedula">
+       </mat-form-field>
+    </div>
+
+        <div class="button-container">
+          <button mat-raised-button color="warn">Consultar</button>
+         
+         </div>
+   
+      </div>
