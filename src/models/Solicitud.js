@@ -7,7 +7,7 @@ var SolicitudSc = new mongoose.Schema({
     localizacion: String,
     observacion: String,
     encargado:String,
-    expediente: String
+    expediente: String,
     nombre: String,
     cedula: String,
     correo: String,
