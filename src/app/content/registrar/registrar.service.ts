@@ -8,7 +8,13 @@ import { Observable } from 'rxjs';
 export class RegistrarService {
 
   constructor(private http: HttpClient) { }
-  saveSolicitante(data: any): Observable<any> {
-    return this.http.post('/solicitudes', data)
+  saveSolicitante(data: any) {
+    return this.http.get('/solicitudes/last').toPromise().then(expediente => {
+      if (expediente) {
+        this.http.post('/solicitudes', {...data, expediente});
+      } else {
+        return null;
+      }
+    });
   }
 }
