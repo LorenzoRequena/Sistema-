@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBarModule} from '@angular/material';
 
 
 
@@ -32,7 +32,7 @@ import {MatSnackBar} from '@angular/material';
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSnackBar
+    MatSnackBarModule
     
 
   ],
@@ -51,7 +51,7 @@ import {MatSnackBar} from '@angular/material';
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSnackBar
+    MatSnackBarModule
     
   ],
   declarations: []
