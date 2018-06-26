@@ -1,19 +1,18 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
-var Solicitante = require('../models/Solicitante.js');
+var Solicitud = require('../models/Solicitud.js');
 var Counter = require('../models/Counter');
 
-/* GET ALL SolicitanteS */
+/* GET ALL SolicitudS */
 router.get('/', function(req, res, next) {
-  Solicitante.find(function (err, products) {
+  Solicitud.find(function (err, products) {
     if (err) return next(err);
     res.json(products);
   });
 });
-/* GET SINGLE Solicitante BY ID */
+/* GET SINGLE Solicitud BY ID */
 router.get('/:id', function(req, res, next) {
-  Solicitante.findById(req.params.id, function (err, post) {
+  Solicitud.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
@@ -39,31 +38,31 @@ function getLast(nodeName) {
 }
 /* SAVE Solicitante */
 router.post('/', function(req, res, next) {
-  Solicitante.create(req.body, function (err, post) {
+  Solicitud.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* UPDATE Solicitante */
+/* UPDATE Solicitud */
 router.put('/:id', function(req, res, next) {
-  Solicitante.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+  Solicitud.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* DELETE Solicitante */
+/* DELETE Solicitud */
 router.delete('/:id', function(req, res, next) {
-  Solicitante.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Solicitud.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
 router.get('/bycedula/:cedula', function(req, res, next) {
- 
-  Solicitante.find({cedula:req.params.cedula}, function (err, post) {
+ console.log("Encontraste la cedula yujuuu")
+  Solicitud.find({cedula:req.params.cedula}, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
