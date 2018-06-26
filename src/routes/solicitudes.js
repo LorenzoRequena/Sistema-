@@ -30,7 +30,7 @@ router.get('/last', function(req, res, next) {
 function getLast(nodeName) {
   var sequenceDocument = Counter.findAndModify(
     {
-       query:{_id: sequenceName },
+       query:{_id: nodeName },
        update: {$inc:{sequence_value:1}},
        new:true
     });

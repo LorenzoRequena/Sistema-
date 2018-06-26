@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { RegistrarService } from './registrar.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-registrar',
@@ -20,7 +21,7 @@ export class RegistrarComponent implements OnInit {
     disableB: boolean = false;
 
 
-  constructor(private register: RegistrarService) { }
+  constructor(private register: RegistrarService,snackbar:MatSnackBar) { }
 
   ngOnInit() {
   }
