@@ -27,11 +27,11 @@ export class RegistrarComponent implements OnInit {
 
   save() {
       this.disableB = true;
-      this.register.saveSolicitante(this.registerForm.value).subscribe(resp => {
+      this.register.saveSolicitante(this.registerForm.value).then(resp => {
       console.log(resp);
       this.registerForm.reset();
       this.disableB = false;
-    })
+    });
    // console.log(this.registerForm.value);
   }
 
