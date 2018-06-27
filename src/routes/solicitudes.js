@@ -28,6 +28,7 @@ router.get('/last', function(req, res, next) {
 });
 
 function getLast(nodeName) {
+  console.log(nodeName, Counter.find())
   var sequenceDocument = Counter.findAndModify(
     {
        query:{_id: nodeName },
