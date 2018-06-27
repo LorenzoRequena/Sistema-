@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
+import * as jsPDF from 'jspdf'
 
 @Component({
   selector: 'app-reportes',
@@ -15,6 +16,12 @@ export class ReportesComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+  }
+  downland(){
+    let doc = new jsPDF()
+ 
+    doc.text('Hello world!', 10, 10)
+    doc.save('a4.pdf')
   }
 }
 export interface PeriodicElement {

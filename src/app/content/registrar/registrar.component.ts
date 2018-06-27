@@ -19,9 +19,10 @@ export class RegistrarComponent implements OnInit {
     correo: new FormControl(''),
   })
     disableB: boolean = false;
+    message: String ;
+    action: String;
 
-
-  constructor(private register: RegistrarService,snackbar:MatSnackBar) { }
+  constructor(private register: RegistrarService, private snackBar:MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -30,6 +31,9 @@ export class RegistrarComponent implements OnInit {
       this.disableB = true;
       this.register.saveSolicitante(this.registerForm.value).then(resp => {
       console.log(resp);
+      this.snackBar.open("Nro de expediente generado", 'cerrar', {
+        duration: 2000,
+      });
       this.registerForm.reset();
       this.disableB = false;
     });
