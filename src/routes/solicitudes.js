@@ -29,6 +29,7 @@ router.get('/last', function(req, res, next) {
 router.post('/', function(req, res, next) {
   Solicitud.findOne().sort('-created').exec(function(err, expediente) { 
     if (err) return next(err);
+    expediente ? parseInt(expediente.expediente || 0) + 1 : 1;
     expediente = expediente.expediente + 1;
     expediente = pad_with_zeroes(expediente, 4)
     console.log(expediente);
