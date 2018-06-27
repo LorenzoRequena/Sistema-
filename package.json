@@ -29,6 +29,7 @@
     "core-js": "^2.5.4",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "jspdf": "^1.4.1",
     "mdi": "^2.2.43",
     "mongoose": "^5.1.2",
     "morgan": "^1.9.0",

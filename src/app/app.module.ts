@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { InicioComponent } from './inicio/inicio.component';
+import { HomeComponent } from './content/home/home.component';
 
 
 
@@ -31,7 +32,8 @@ import { InicioComponent } from './inicio/inicio.component';
     ReportesComponent,
     AutoridadComponent,
     AdminComponent,
-    InicioComponent
+    InicioComponent,
+    HomeComponent
 
    
   
