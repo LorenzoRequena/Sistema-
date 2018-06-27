@@ -31,7 +31,7 @@ export class RegistrarComponent implements OnInit {
       this.disableB = true;
       this.register.saveSolicitante(this.registerForm.value).then(resp => {
       console.log(resp);
-      this.snackBar.open("Nro de expediente generado", 'cerrar', {
+      this.snackBar.open("Nro de expediente generado: " + resp, 'Ocultar', {
         duration: 2000,
       });
       this.registerForm.reset();
