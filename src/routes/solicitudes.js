@@ -29,11 +29,12 @@ router.get('/last', function(req, res, next) {
 router.post('/', function(req, res, next) {
   Solicitud.findOne().sort('-created').exec(function(err, expediente) { 
     if (err) return next(err);
+    expediente ? expediente.expediente = expediente.expediente.split("-", 3)[0] : expediente;
     expediente ? expediente = parseInt(expediente.expediente || 0) + 1 : expediente = 1;
     expediente = pad_with_zeroes(expediente, 4)
     console.log(expediente);
     var date = new Date();
-    expediente = expediente + date.getMonth() + date.getFullYear()
+    expediente = expediente + "-" + date.getMonth() + date.getFullYear()
     Solicitud.create({...req.body, expediente}, function (err, post) {
       if (err) return next(err);
       res.json(expediente);
