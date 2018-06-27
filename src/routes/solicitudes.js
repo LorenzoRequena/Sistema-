@@ -27,12 +27,28 @@ router.get('/last', function(req, res, next) {
 
 /* SAVE Solicitante */
 router.post('/', function(req, res, next) {
-  Solicitud.create(req.body, function (err, post) {
+  Solicitud.findOne().sort('-created').exec(function(err, expediente) { 
     if (err) return next(err);
-    res.json(post);
-  });
+    expediente = pad_with_zeroes(expediente)
+    console.log(expediente);
+    var date = new Data();
+    expediente = expediente + date.getMonth() + date.getYear()
+    Solicitud.create({...req.body, expediente}, function (err, post) {
+      if (err) return next(err);
+      res.json(expediente);
+    });
+   });  
 });
+function pad_with_zeroes(number, length) {
 
+    var my_string = '' + number;
+    while (my_string.length < length) {
+        my_string = '0' + my_string;
+    }
+
+    return my_string;
+
+}
 /* UPDATE Solicitud */
 router.put('/:id', function(req, res, next) {
   Solicitud.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
