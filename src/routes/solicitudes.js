@@ -29,7 +29,7 @@ router.get('/last', function(req, res, next) {
 router.post('/', function(req, res, next) {
   Solicitud.findOne().sort('-created').exec(function(err, expediente) { 
     if (err) return next(err);
-    expediente = pad_with_zeroes(expediente)
+    expediente = pad_with_zeroes(expediente, 4)
     console.log(expediente);
     var date = new Data();
     expediente = expediente + date.getMonth() + date.getYear()
