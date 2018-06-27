@@ -34,7 +34,7 @@ router.post('/', function(req, res, next) {
     expediente = pad_with_zeroes(expediente, 4)
     console.log(expediente);
     var date = new Date();
-    expediente = expediente + "-" + date.getMonth() + date.getFullYear()
+    expediente = expediente + "-" + pad_with_zeroes(date.getMonth(), 2) + date.getFullYear()
     Solicitud.create({...req.body, expediente}, function (err, post) {
       if (err) return next(err);
       res.json(expediente);
