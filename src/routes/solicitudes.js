@@ -19,24 +19,12 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.get('/last', function(req, res, next) {  
-  var nExpediente = getLast("productid");
-  if(nExpediente) {
-    res.json(nExpediente)
-  } else {
-    res.json('Some error')
-  }
+  Solicitud.findOne().sort('-created').exec(function(err, post) { 
+    if (err) return next(err);
+    res.json(post)
+   });
 });
 
-function getLast(nodeName) {
-  console.log(nodeName, Counter.find())
-  var sequenceDocument = Counter.findAndModify(
-    {
-       query:{_id: nodeName },
-       update: {$inc:{sequence_value:1}},
-       new:true
-    });
- return sequenceDocument.sequence_value;
-}
 /* SAVE Solicitante */
 router.post('/', function(req, res, next) {
   Solicitud.create(req.body, function (err, post) {
