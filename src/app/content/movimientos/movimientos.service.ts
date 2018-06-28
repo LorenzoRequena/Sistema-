@@ -16,7 +16,7 @@ export class MovimientosService {
   updatesolicitud(data, expediente) {
     console.log(data, expediente);
     return this.http
-      .post(this.url + '/solicitudes/' + expediente, data)
+      .post(this.url + '/solicitudes/actualizar/' + expediente, data)
       .toPromise();
   }
 }
