@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-   message ='Bienvenido al Sistema de la Zona Educativa';
+   message ='Bienvenido un saludo revolucionario camarada';
   constructor() { }
 
   ngOnInit() {

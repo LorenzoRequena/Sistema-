@@ -2,10 +2,18 @@ div h2{
 text-align: center;
 }
 div .example-card {
-    max-width: 400px;
+    max-width: 500px;
+    margin-left: 25%;
+    margin-top: 7%;
   }
-  
+  /*
  div .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-image: url('');
     background-size: cover;
+    
+  }
+  */
+  div .imagen{
+  height: 10em;
+
   }

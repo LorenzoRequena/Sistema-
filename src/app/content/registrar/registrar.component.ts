@@ -21,6 +21,7 @@ export class RegistrarComponent implements OnInit {
     disableB: boolean = false;
     message: String ;
     action: String;
+   
 
   constructor(private register: RegistrarService, private snackBar:MatSnackBar) { }
 
@@ -31,9 +32,12 @@ export class RegistrarComponent implements OnInit {
       this.disableB = true;
       this.register.saveSolicitante(this.registerForm.value).then(resp => {
       console.log(resp);
-      this.snackBar.open("Nro de expediente generado: " + resp, 'Ocultar', {
-        duration: 2000,
+      
+      this.snackBar.open("Nro de expediente generado: " + resp, 'Salir', {
+        duration: 10000,
+      
       });
+      
       this.registerForm.reset();
       this.disableB = false;
     });

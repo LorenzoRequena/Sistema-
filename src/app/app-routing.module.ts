@@ -13,7 +13,7 @@ import { HomeComponent } from './content/home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/registrar', pathMatch: 'full' },
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   {path: 'login', component: InicioComponent},
   {path: 'inicio', component: HomeComponent},
   { path: 'registrar', component: RegistrarComponent },
