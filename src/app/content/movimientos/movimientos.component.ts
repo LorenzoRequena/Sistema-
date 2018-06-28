@@ -10,34 +10,24 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./movimientos.component.css']
 })
 export class MovimientosComponent implements OnInit {
-  
-  constructor(private mover:MovimientosService, private dialog:MatDialog) { }
-  by:String = 'expediente';
-  expediente:any;
-  ngOnInit() {
-
+  constructor(private mover: MovimientosService, private dialog: MatDialog) {}
+  by: String = 'expediente';
+  expediente: any;
+  ngOnInit() {}
+  parsearFecha(fecha) {
+    return new Date(fecha).toLocaleDateString('en-US');
   }
-  parsearFecha(fecha){
-  return new Date(fecha).toLocaleDateString("en-US");
-  
-
-  }
-  openModel(data){
+  openModel(data) {
     const dialogRef = this.dialog.open(DialogMovimientosComponent, {
       width: '500px',
-      data:data
+      data: data
     });
   }
 
-search(){
-  this.mover.searchSolicitud(this.expediente,this.by).then(resp =>{
-    console.log(resp,typeof resp);
-    this.openModel(resp);
-   })
+  search() {
+    this.mover.searchSolicitud(this.expediente, this.by).then(resp => {
+      console.log(resp, typeof resp);
+      this.openModel(resp);
+    });
   }
 }
-
-  
-  
-
-

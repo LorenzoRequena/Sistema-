@@ -8,25 +8,27 @@ import { MovimientosService } from '../movimientos.service';
   styleUrls: ['./dialog-movimientos.component.css']
 })
 export class DialogMovimientosComponent implements OnInit {
-  
   registerForm = new FormGroup({
     encargado: new FormControl(''),
-    localizacion: new FormControl(''),
-   
+    localizacion: new FormControl('')
   });
-  constructor( private movilizar: MovimientosService,
+  constructor(
+    private movilizar: MovimientosService,
     public dialogRef: MatDialogRef<DialogMovimientosComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
-      console.log(data)
-    }
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    console.log(data);
+  }
 
   close(): void {
     this.dialogRef.close();
   }
-   mover(){
-     console.log(this.registerForm.value,this.data,'jejeje')
-     this.movilizar.updatesolicitud(this.registerForm.value,this.data[0].expediente);
-   }
-  ngOnInit() {
+  mover() {
+    console.log(this.registerForm.value, this.data, 'jejeje');
+    this.movilizar.updatesolicitud(
+      this.registerForm.value,
+      this.data[0].expediente
+    ).then(resp => console.log(resp));
   }
+  ngOnInit() {}
 }
