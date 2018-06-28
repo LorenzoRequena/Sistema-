@@ -54,7 +54,7 @@ function pad_with_zeroes(number, length) {
 /* UPDATE Solicitud */
 router.post('/actualizar/:expediente', function(req, res, next) {
   console.log(req.body, "from actualizar");  
-  Solicitud.findOneAndUpdate({expediente: req.params.expediente}, req.body, function (err, post) {
+  Solicitud.findOneAndUpdate({expediente: req.params.expediente}, req.body, {new: true}, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
