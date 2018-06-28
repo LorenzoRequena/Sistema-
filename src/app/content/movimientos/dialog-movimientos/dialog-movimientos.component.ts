@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MovimientosService } from '../movimientos.service';
 @Component({
@@ -14,6 +14,7 @@ export class DialogMovimientosComponent implements OnInit {
   });
   constructor(
     private movilizar: MovimientosService,
+    private snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<DialogMovimientosComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
@@ -28,7 +29,12 @@ export class DialogMovimientosComponent implements OnInit {
     this.movilizar.updatesolicitud(
       this.registerForm.value,
       this.data[0].expediente
-    ).then(resp => console.log(resp));
+    ).then((resp: any) => {
+      this.close();
+      this.snackBar.open('Registro actualizado: ' + resp.expediente, 'Salir', {
+        duration: 10000
+      });
+    });
   }
   ngOnInit() {}
 }

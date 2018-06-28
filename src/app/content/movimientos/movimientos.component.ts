@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovimientosService } from './movimientos.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { DialogMovimientosComponent } from './dialog-movimientos/dialog-movimientos.component';
 import { FormGroup, FormControl } from '@angular/forms';
 
