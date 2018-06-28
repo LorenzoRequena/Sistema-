@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material';
 import {MatSnackBarModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -32,7 +33,8 @@ import {MatSnackBarModule} from '@angular/material';
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
     
 
   ],
@@ -51,7 +53,8 @@ import {MatSnackBarModule} from '@angular/material';
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
     
   ],
   declarations: []

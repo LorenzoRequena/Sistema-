@@ -52,8 +52,8 @@ function pad_with_zeroes(number, length) {
 
 }
 /* UPDATE Solicitud */
-router.put('/:id', function(req, res, next) {
-  Solicitud.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+router.post('/actualizar/:expediente', function(req, res, next) {
+  Solicitud.findByIdAndUpdate(req.params.expediente, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
@@ -74,7 +74,13 @@ router.get('/bycedula/:cedula', function(req, res, next) {
     res.json(post);
   });
 });
-
+router.get('/byexpediente/:expediente', function(req, res, next) {
+  console.log("Encontraste la cedula yujuuu")
+   Solicitud.find({expediente:req.params.expediente}, function (err, post) {
+     if (err) return next(err);
+     res.json(post);
+   });
+ });
 
 
 

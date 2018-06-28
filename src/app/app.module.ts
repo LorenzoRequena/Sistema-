@@ -16,11 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { InicioComponent } from './inicio/inicio.component';
 import { HomeComponent } from './content/home/home.component';
-
-
-
-
-
+import { DialogComponent } from './content/consultar/dialog/dialog.component';
+import { DialogMovimientosComponent } from './content/movimientos/dialog-movimientos/dialog-movimientos.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +30,10 @@ import { HomeComponent } from './content/home/home.component';
     AutoridadComponent,
     AdminComponent,
     InicioComponent,
-    HomeComponent
-
-   
-  
-    
-  ],
+    HomeComponent,
+    DialogComponent,
+    DialogMovimientosComponent
+    ],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -51,6 +46,11 @@ import { HomeComponent } from './content/home/home.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents:[
+    DialogComponent,
+    DialogMovimientosComponent
+
+  ]
   //schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { 

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MovimientosService } from './movimientos.service';
+import { MatDialog } from '@angular/material';
+import { DialogMovimientosComponent } from './dialog-movimientos/dialog-movimientos.component';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-movimientos',
@@ -7,13 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovimientosComponent implements OnInit {
   
-  disableB:boolean= false;
-  secondView:boolean = false;
-  constructor() { }
-
+  constructor(private mover:MovimientosService, private dialog:MatDialog) { }
+  by:String = 'expediente';
+  expediente:any;
   ngOnInit() {
+
   }
-  search(){}
+  parsearFecha(fecha){
+  return new Date(fecha).toLocaleDateString("en-US");
+  
 
+  }
+  openModel(data){
+    const dialogRef = this.dialog.open(DialogMovimientosComponent, {
+      width: '500px',
+      data:data
+    });
+  }
 
+search(){
+  this.mover.searchSolicitud(this.expediente,this.by).then(resp =>{
+    console.log(resp,typeof resp);
+    this.openModel(resp);
+   })
+  }
 }
+
+  
+  
+
+

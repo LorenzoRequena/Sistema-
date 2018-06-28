@@ -1,0 +1,25 @@
+<ul>
+  <li>
+    <mat-form-field>
+      <input readOnly matInput [value]="data.cedula" placeholder="Proposito">
+    </mat-form-field>
+  </li>
+  <li>
+    <mat-form-field>
+      <input readOnly matInput [value]="data.localizacion" placeholder="Localizacion">
+    </mat-form-field>
+  </li>
+  <li>
+    <mat-form-field>
+      <input readOnly matInput [value]="data.observacion" placeholder="Observacion">
+    </mat-form-field>
+  </li>
+  <li>
+    <mat-form-field>
+      <input readOnly  matInput [value]="data.encargado" placeholder="Encargado">
+    </mat-form-field>
+  </li>
+
+  <button mat-raised-button (click)="close()">Cerrar</button>
+
+</ul>

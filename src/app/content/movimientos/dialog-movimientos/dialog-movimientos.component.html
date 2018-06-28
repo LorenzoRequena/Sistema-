@@ -1,0 +1,40 @@
+<div>
+      
+    <mat-form-field>
+        <input readOnly matInput [value]="data.cedula" placeholder="Encargado">
+      </mat-form-field>
+   
+   
+      <mat-form-field>
+        <input readOnly matInput [value]="data.localizacion" placeholder="localizacion">
+      </mat-form-field>
+      <form [formGroup]="registerForm" >
+          <mat-form-field>
+              <mat-select formControlName="encargado" placeholder="Encargar a ">
+              <mat-option value="Pedrio Perez">Pedrito Perez</mat-option>
+              <mat-option value="Pedro Rosa">Pedro rosa</mat-option>
+              <mat-option value="Julio Cesar">Julio Cesar</mat-option>
+              </mat-select>
+           
+      </mat-form-field>
+    
+      <mat-form-field>
+          <mat-select  formControlName="localizacion" placeholder="Mover a ">
+          <mat-option value="Verificar y confirmar">Verificar y confirmar</mat-option>
+          <mat-option value="Tipeo">Tipeo</mat-option>
+          <mat-option value="verificacion de titulo">verificacion de titulo</mat-option>
+          <mat-option value="Legalizacion">Legalización</mat-option>
+          <mat-option value="Firma">Firma</mat-option>
+          <mat-option value="Taquilla de salida">Taquilla de salida</mat-option>
+          </mat-select>
+       
+     </mat-form-field>
+     </form>
+      
+      <button mat-raised-button (click)="mover()">Mover</button>
+       <button mat-raised-button (click)="cerrar()">Cerrar</button>
+  
+
+
+</div>
+     

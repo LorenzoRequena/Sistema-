@@ -19,8 +19,11 @@ export class ReportesComponent implements OnInit {
   }
   downland(){
     let doc = new jsPDF()
-    doc.text('Hello world!', 10, 10)
-    doc.save('a4.pdf')
+    doc.text('Hello world!', 10, 0)
+    ELEMENT_DATA.map((item,index) =>{
+      doc.text('nombre: ' + item.nombre + ' expediente: ' + item.expediente, 20, 10*index )
+    })
+    doc.save('reporte.pdf')
   }
 }
 export interface PeriodicElement {

@@ -3,15 +3,14 @@
 <div class="example-container">
   <div class="chips-container">
    <mat-chip-list>
-    <mat-chip color="warn" selected="true">Por numero de cedula</mat-chip>
-    <mat-chip color="warn" selected="true">Por numero de expediente</mat-chip>
+    <mat-chip color="warn" selected="true"(click)="change('cedula')" >Por numero de cedula</mat-chip>
+    <mat-chip color="warn" selected="true" (click)="change('expediente')">Por numero de expediente</mat-chip>
   </mat-chip-list> 
-
     </div>
 
     <div class="formField-example">
        <mat-form-field >
-       <input class="form-example" [(ngModel)]="cedula" matInput placeholder="Nro de Cedula">
+       <input class="form-example" [(ngModel)]="cedula" matInput [placeholder]=" 'Nro. de ' + by">
        </mat-form-field>
     </div>
 
@@ -19,6 +18,16 @@
           <button mat-raised-button color="warn" (click)="search()">Consultar</button>
          
          </div>
+
+        <div *ngIf="solicitudes">
+          <ul>
+           <li *ngFor="let solicitud of solicitudes">
+            {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
+            <span>{{solicitud.status}}</span>
+            <button (click)="openModel(solicitud)">Ver</button>
+          </li>
+          </ul>
+        </div>
 
       </div>
 
