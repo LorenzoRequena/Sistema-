@@ -8,6 +8,7 @@ import { AdminComponent } from './content/admin/admin.component';
 import { AutoridadComponent } from './content/autoridad/autoridad.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HomeComponent } from './content/home/home.component';
+import { UbicacionComponent } from './content/ubicacion/ubicacion.component';
 
 
 
@@ -21,7 +22,9 @@ const routes: Routes = [
   { path: 'movimientos', component: MovimientosComponent },
   { path: 'reportes',    component: ReportesComponent },
   { path: 'admin',     component: AdminComponent },
-  { path: 'autoridad', component: AutoridadComponent }
+  { path: 'autoridad', component: AutoridadComponent },
+  { path: 'ubicacion', component: UbicacionComponent }
+
 ];
 
 @NgModule({

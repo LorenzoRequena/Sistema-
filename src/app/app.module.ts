@@ -18,6 +18,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HomeComponent } from './content/home/home.component';
 import { DialogComponent } from './content/consultar/dialog/dialog.component';
 import { DialogMovimientosComponent } from './content/movimientos/dialog-movimientos/dialog-movimientos.component';
+import { UbicacionComponent } from './content/ubicacion/ubicacion.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DialogMovimientosComponent } from './content/movimientos/dialog-movimie
     InicioComponent,
     HomeComponent,
     DialogComponent,
-    DialogMovimientosComponent
+    DialogMovimientosComponent,
+    UbicacionComponent
     ],
   imports: [
     BrowserModule,
