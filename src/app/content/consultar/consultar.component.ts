@@ -14,6 +14,7 @@ export class ConsultarComponent implements OnInit {
   
 
   constructor(private consultar:ConsultarService, private dialog:MatDialog) { }
+  message:String = "Documentos registrados de la persona fulanito";
   cedula :any;
   solicitudes:any;
   by:String = 'cedula';

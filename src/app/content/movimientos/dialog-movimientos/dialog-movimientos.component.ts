@@ -8,7 +8,7 @@ import { MovimientosService } from '../movimientos.service';
   styleUrls: ['./dialog-movimientos.component.css']
 })
 export class DialogMovimientosComponent implements OnInit {
-  registerForm = new FormGroup({
+    registerForm = new FormGroup({
     encargado: new FormControl(''),
     localizacion: new FormControl('')
   });

@@ -6,14 +6,21 @@ div .example-card {
     margin-left: 25%;
     margin-top: 7%;
   }
-  /*
- div .example-header-image {
-    background-image: url('');
+   div .example-header-image {
+    background-image: url('/assets/Imagen/chavez.jpg');
     background-size: cover;
     
   }
-  */
+  
   div .imagen{
   height: 10em;
 
+  }
+  div .card{
+    width: 44%;
+    margin-left: 25%;
+    text-align: center;
+    color: white;
+    background: red;
+    font-size: 24px;
   }

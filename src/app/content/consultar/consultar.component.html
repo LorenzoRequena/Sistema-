@@ -19,14 +19,20 @@
          
          </div>
 
-        <div *ngIf="solicitudes">
-          <ul>
-           <li *ngFor="let solicitud of solicitudes">
-            {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
-            <span>{{solicitud.status}}</span>
-            <button (click)="openModel(solicitud)">Ver</button>
-          </li>
-          </ul>
+         
+         <div class="consult-list" *ngIf="solicitudes">
+           <mat-card class="matcard-example">
+              <h3 class="text">{{this.message}}</h3>
+            <ul>
+              <li class="li-separation" *ngFor="let solicitud of solicitudes">
+               {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
+               <span>{{solicitud.status}}</span>
+               <button mat-raised-button color="warn" (click)="openModel(solicitud)">Ver</button>
+              <!-- <button (click)="openModel(solicitud)">Ver</button>-->
+             </li>
+             </ul>
+          </mat-card>
+          
         </div>
 
       </div>

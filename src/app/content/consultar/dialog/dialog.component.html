@@ -1,25 +1,20 @@
-<ul>
-  <li>
-    <mat-form-field>
-      <input readOnly matInput [value]="data.cedula" placeholder="Proposito">
-    </mat-form-field>
-  </li>
-  <li>
-    <mat-form-field>
-      <input readOnly matInput [value]="data.localizacion" placeholder="Localizacion">
-    </mat-form-field>
-  </li>
-  <li>
-    <mat-form-field>
-      <input readOnly matInput [value]="data.observacion" placeholder="Observacion">
-    </mat-form-field>
-  </li>
-  <li>
-    <mat-form-field>
-      <input readOnly  matInput [value]="data.encargado" placeholder="Encargado">
-    </mat-form-field>
-  </li>
 
-  <button mat-raised-button (click)="close()">Cerrar</button>
+  
+<div class="example">
+  <mat-form-field>
+    <input readOnly matInput [value]="data.cedula" placeholder="Proposito">
+  </mat-form-field>
 
-</ul>
+  <mat-form-field>
+    <input readOnly matInput [value]="data.localizacion" placeholder="Localizacion">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input readOnly matInput [value]="data.observacion" placeholder="Observacion">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input readOnly  matInput [value]="data.encargado" placeholder="Encargado">
+  </mat-form-field>
+</div>
+<button mat-raised-button color="warn" class="button" (click)="close()">Cerrar</button>
