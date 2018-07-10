@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   url: String = 'http://localhost:3000';
-  constructor(private http: HttpClient) { }
+  isLogged = new BehaviorSubject(false)
+  userData = new BehaviorSubject({})
+   constructor(private http: HttpClient) { }
   saveUser(data: any): Observable<any> {
     return this.http.post(this.url + '/user', data);
   }
-
+  isUserLogged(){
+    return this.isLogged.value
+  }
   loginUser(data: any): Observable<any> {
     return this.http.post(this.url + '/user/login', data);
   }

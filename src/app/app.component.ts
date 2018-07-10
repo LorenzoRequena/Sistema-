@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './inicio/login.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   events: string[] = [];
-  opened: boolean = true;
+  opened: boolean = false;
+  islogin:any;
+constructor(private login:LoginService){
+login.isLogged.subscribe(a =>{
+  this.islogin = a;
+  this.opened = a;
+});
+
+}
 }

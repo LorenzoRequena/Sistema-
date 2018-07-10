@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -10,7 +11,8 @@ export class InicioComponent implements OnInit {
   username: String;
   password: String;
   rol:      String;
-  constructor( private login:LoginService ) { }
+  message: String = 'Bienvenido al sistema de control de estudio';
+  constructor( private login:LoginService, public router: Router) { }
 
   ngOnInit() {
   }
@@ -18,6 +20,14 @@ export class InicioComponent implements OnInit {
   loginUser(){
     this.login.loginUser({logusername:this.username,logpassword:this.password}).subscribe(resp =>{
       console.log(resp);
+      if(!resp){
+        this.login.isLogged.next(false);
+        this.login.userData.next({})  
+        return;
+      }
+      this.login.isLogged.next(true);
+      this.login.userData.next(resp)
+      this.router.navigate(['inicio'])
    })
    
    }

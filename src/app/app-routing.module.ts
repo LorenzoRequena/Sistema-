@@ -9,21 +9,22 @@ import { AutoridadComponent } from './content/autoridad/autoridad.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HomeComponent } from './content/home/home.component';
 import { UbicacionComponent } from './content/ubicacion/ubicacion.component';
+import { GuardService } from './inicio/guard.service';
 
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'login', component: InicioComponent},
-  {path: 'inicio', component: HomeComponent},
-  { path: 'registrar', component: RegistrarComponent },
-  { path: 'consultar', component: ConsultarComponent },
-  { path: 'movimientos', component: MovimientosComponent },
-  { path: 'reportes',    component: ReportesComponent },
-  { path: 'admin',     component: AdminComponent },
-  { path: 'autoridad', component: AutoridadComponent },
-  { path: 'ubicacion', component: UbicacionComponent }
+  {path: 'inicio', component: HomeComponent, canActivate: [GuardService]},
+  { path: 'registrar', component: RegistrarComponent, canActivate: [GuardService] },
+  { path: 'consultar', component: ConsultarComponent, canActivate: [GuardService] },
+  { path: 'movimientos', component: MovimientosComponent, canActivate: [GuardService] },
+  { path: 'reportes',    component: ReportesComponent, canActivate: [GuardService] },
+  { path: 'admin',     component: AdminComponent, canActivate: [GuardService] },
+  { path: 'autoridad', component: AutoridadComponent, canActivate: [GuardService] },
+  { path: 'ubicacion', component: UbicacionComponent, canActivate: [GuardService] }
 
 ];
 
