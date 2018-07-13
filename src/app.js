@@ -5,7 +5,9 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var solicitud = require('./routes/solicitudes');
+var solicitantes = require('./routes/solicitantes');
 var users = require('./routes/user.js');
+var personal = require('./routes/personal.js');
 var app = express();
 var MongoStore = require('connect-mongo')(session);
 var MONGO_URL = 'mongodb://127.0.0.1:27017/auth';
@@ -46,8 +48,10 @@ app.use(session({
 }));
 app.use(express.static(path.join(__dirname, '../dist/Sistema')));
 app.use('/home', express.static(path.join(__dirname, '../dist/Sistema')));
+app.use('/solicitantes', solicitantes);
 app.use('/solicitudes', solicitud);
-app.use('/user', users)
+app.use('/user', users);
+app.use('/personal',personal);
 
 
 // catch 404 and forward to error handler

@@ -25,7 +25,7 @@ router.get('/last', function(req, res, next) {
    });
 });
 
-/* SAVE Solicitante */
+/* Generador de numero de expediente*/
 router.post('/', function(req, res, next) {
   Solicitud.findOne().sort('-created').exec(function(err, expediente) { 
     if (err) return next(err);
@@ -51,32 +51,31 @@ function pad_with_zeroes(number, length) {
     return my_string;
 
 }
-/* UPDATE Solicitud */
+/*Movilizacion de documento*/
 router.post('/actualizar/:expediente', function(req, res, next) {
-  console.log(req.body, "from actualizar");  
+  console.log(req.body);  
   Solicitud.findOneAndUpdate({expediente: req.params.expediente}, req.body, {new: true}, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* DELETE Solicitud */
-router.delete('/:id', function(req, res, next) {
+/*Eliminar */
+ router.delete('/:id', function(req, res, next) {
   Solicitud.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
-
-router.get('/bycedula/:cedula', function(req, res, next) {
- console.log("Encontraste la cedula yujuuu")
+/*Buscar por cedula*/
+ router.get('/bycedula/:cedula', function(req, res, next) {
   Solicitud.find({cedula:req.params.cedula}, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
-router.get('/byexpediente/:expediente', function(req, res, next) {
-  console.log("Encontraste la cedula yujuuu")
+/*Buscar nro de expediente*/
+  router.get('/byexpediente/:expediente', function(req, res, next) {
    Solicitud.find({expediente:req.params.expediente}, function (err, post) {
      if (err) return next(err);
      res.json(post);

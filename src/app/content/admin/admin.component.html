@@ -1,3 +1,22 @@
-<p>
-  admin works!
-</p>
+<div>
+  <mat-form-field>
+    <input class="form-example" [(ngModel)]="username" matInput placeholder="Nombre de usuario">
+  </mat-form-field>
+  <mat-form-field>
+    <input class="form-example" [(ngModel)]="password" matInput placeholder="contraseña">
+  </mat-form-field>
+</div>
+
+<mat-select [(ngModel)]="rol" placeholder="Rol">
+  <mat-option value="leg1">Registrador</mat-option>
+  <mat-option value="leg2">Consultor</mat-option>
+  <mat-option value="leg2">Movimiento</mat-option>
+</mat-select>
+
+
+
+
+<div class="grupob">
+  <button mat-raised-button color="warn" (click)="saveUser()">Crear</button>
+  <button class="button" mat-raised-button color="warn" (click)="loginUser()">Login</button>
+</div>

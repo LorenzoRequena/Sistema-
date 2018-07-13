@@ -30,6 +30,10 @@
   margin-bottom: 5%;
 
 }
-.colorCard{
+.Card{
   background:#EFE9E7;
+  width: 20%;
+  margin-left: 38%;
+  text-align: center;
+border-radius: 10%;
 }

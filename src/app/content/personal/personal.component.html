@@ -1,0 +1,18 @@
+<mat-card class="Card">
+  Personal</mat-card>
+
+<div>
+  <form [formGroup]=registerForm>
+    <mat-form-field>
+      <input matInput formControlName="cedula" placeholder="Cedula">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="nombres" placeholder="Nombres">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="apellidos" placeholder="Apellidos">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="warn" (click)="search()">Registrar</button>
+
+</div>

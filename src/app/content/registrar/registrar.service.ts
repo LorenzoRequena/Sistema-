@@ -9,6 +9,6 @@ export class RegistrarService {
   url: String = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
   saveSolicitante(data: any) {
-    return this.http.post(this.url + '/solicitudes', data).toPromise();
+    return this.http.post(this.url + '/solicitantes', data).toPromise();
   }
 }

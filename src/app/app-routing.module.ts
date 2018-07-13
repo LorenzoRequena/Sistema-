@@ -1,35 +1,34 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegistrarComponent } from './content/registrar/registrar.component';
 import { ConsultarComponent } from './content/consultar/consultar.component';
 import { MovimientosComponent } from './content/movimientos/movimientos.component';
 import { ReportesComponent } from './content/reportes/reportes.component';
 import { AdminComponent } from './content/admin/admin.component';
-import { AutoridadComponent } from './content/autoridad/autoridad.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HomeComponent } from './content/home/home.component';
 import { UbicacionComponent } from './content/ubicacion/ubicacion.component';
 import { GuardService } from './inicio/guard.service';
-
+import { PersonalComponent } from './content/personal/personal.component';
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  {path: 'login', component: InicioComponent},
-  {path: 'inicio', component: HomeComponent, canActivate: [GuardService]},
+  { path: 'login', component: InicioComponent },
+  { path: 'inicio', component: HomeComponent, canActivate: [GuardService] },
   { path: 'registrar', component: RegistrarComponent, canActivate: [GuardService] },
   { path: 'consultar', component: ConsultarComponent, canActivate: [GuardService] },
   { path: 'movimientos', component: MovimientosComponent, canActivate: [GuardService] },
-  { path: 'reportes',    component: ReportesComponent, canActivate: [GuardService] },
-  { path: 'admin',     component: AdminComponent, canActivate: [GuardService] },
-  { path: 'autoridad', component: AutoridadComponent, canActivate: [GuardService] },
+  { path: 'reportes', component: ReportesComponent, canActivate: [GuardService] },
+  { path: 'admin', component: AdminComponent, canActivate: [GuardService] },
+  { path: 'personal', component: PersonalComponent, canActivate: [GuardService] },
   { path: 'ubicacion', component: UbicacionComponent, canActivate: [GuardService] }
 
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

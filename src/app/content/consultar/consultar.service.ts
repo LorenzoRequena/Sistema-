@@ -11,12 +11,11 @@ export class ConsultarService {
   url: String = 'http://localhost:3000';
   searchSolicitud(clave: any, by:any) {
     return this.http.get(this.url + '/solicitudes/by'+by+'/' + clave).toPromise();
-  }
-}
-  /*searchSolicitantes(cedula:any):Observable<any>{
-    console.log(cedula);
-    return this.http.get('/solicitudes/bycedula/' + cedula);
-  }
-}
-  */
 
+  }
+  
+ searchSolicitante(clave:any ){
+   return this.http.get(this.url + '/solicitantes/cedula/ '+ clave).toPromise();
+ }
+ 
+}

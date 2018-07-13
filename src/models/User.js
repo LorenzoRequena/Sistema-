@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var UserSchema = new mongoose.Schema({
-  rol: {
-    type: String,
-    required: true,
-    trim: true
-  },
+  // rol: {
+  //   type: String,
+  //   required: true,
+  //   trim: true
+  // },
   username: {
     type: String,
     unique: true,
@@ -34,7 +34,7 @@ UserSchema.pre('save', function (next) {
 });
 
 UserSchema.statics.authenticate = function (username, password, callback) {
-  console.log("esta aqui");
+  //console.log("esta aqui");
   console.log(username,password)
   User.findOne({ username: username })
     .exec(function (err, user) {

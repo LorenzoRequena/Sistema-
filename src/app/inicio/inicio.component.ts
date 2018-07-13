@@ -12,6 +12,7 @@ export class InicioComponent implements OnInit {
   password: String;
   rol:      String;
   message: String = 'Bienvenido al sistema de control de estudio';
+  messageError: String ="Error usuario no identificado";
   constructor( private login:LoginService, public router: Router) { }
 
   ngOnInit() {

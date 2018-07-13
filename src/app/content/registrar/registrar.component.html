@@ -30,11 +30,12 @@
         <mat-form-field>
           <div class="form-select">
             <mat-select formControlName="proposito" placeholder="Propósito">
-              <mat-option value="Legalizacion de titulos">Emision de calificaciones basicas</mat-option>
-              <mat-option value="Legalizacion de Notas">Emision de calicaciones diversificada</mat-option>
-              <mat-option value="Legalizacion de constancia de primaria">Legalizacion de constancia de primaria</mat-option>
-              <mat-option value="Legalizacion de constancia de primaria">Legalizacion de constancia de primaria</mat-option>
-
+              <mat-option value="Legalizacion de Notas de Primaria">Legalizacion de Notas de Primaria</mat-option>
+              <mat-option value="Constancia de Primaria">Constancia de Primaria</mat-option>
+              <mat-option value="Constancia de primaria diversificada">Constancia de primaria diversificada</mat-option>
+              <mat-option value="Legalizacion de titulo">Legalizacion de titulo</mat-option>
+              <mat-option value="Emision de titulo de libre escolaridad">Emision de titulo de libre escolaridad</mat-option>
+              <mat-option value="Evaluacion">Evaluacion</mat-option>
             </mat-select>
           </div>
         </mat-form-field>
@@ -56,9 +57,9 @@
 
 <div *ngIf="view=='search'"> 
 
-  <mat-card class="colorCard">
+  <mat-card class="Card">
     <mat-form-field>
-      <input matInput formControlName="cedula" placeholder="Cedula">
+      <input matInput [(ngModel)]="cedula" placeholder="Cedula">
     </mat-form-field>
     <div>
       <button mat-raised-button color="warn"  (click)="search()" [disabled]="disableB">Buscar</button>
