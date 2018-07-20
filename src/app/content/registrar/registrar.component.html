@@ -2,7 +2,7 @@
   <mat-card class="register-example">Registrar Documento</mat-card>
 </div>
 
-<div *ngIf="view=='register'"> 
+<div *ngIf="view=='register'">
   <form [formGroup]="registerForm">
     <mat-grid-list cols="2" rowHeight="6:1">
       <mat-grid-tile>
@@ -25,22 +25,6 @@
           <input matInput formControlName="correo" placeholder="Correo">
         </mat-form-field>
       </mat-grid-tile>
-
-      <mat-grid-tile>
-        <mat-form-field>
-          <div class="form-select">
-            <mat-select formControlName="proposito" placeholder="Propósito">
-              <mat-option value="Legalizacion de Notas de Primaria">Legalizacion de Notas de Primaria</mat-option>
-              <mat-option value="Constancia de Primaria">Constancia de Primaria</mat-option>
-              <mat-option value="Constancia de primaria diversificada">Constancia de primaria diversificada</mat-option>
-              <mat-option value="Legalizacion de titulo">Legalizacion de titulo</mat-option>
-              <mat-option value="Emision de titulo de libre escolaridad">Emision de titulo de libre escolaridad</mat-option>
-              <mat-option value="Evaluacion">Evaluacion</mat-option>
-            </mat-select>
-          </div>
-        </mat-form-field>
-      </mat-grid-tile>
-
       <mat-grid-tile>
         <mat-form-field>
           <input matInput formControlName="telefono" placeholder="Telefono">
@@ -55,41 +39,41 @@
 </div>
 
 
-<div *ngIf="view=='search'"> 
+<div *ngIf="view=='search'">
 
   <mat-card class="Card">
     <mat-form-field>
       <input matInput [(ngModel)]="cedula" placeholder="Cedula">
     </mat-form-field>
     <div>
-      <button mat-raised-button color="warn"  (click)="search()" [disabled]="disableB">Buscar</button>
+      <button mat-raised-button color="warn" (click)="search()" [disabled]="disableB">Buscar</button>
     </div>
 
   </mat-card>
 
 </div>
 
-<div *ngIf="view=='solicitar'">
-  <mat-card>
+<div *ngIf="view=='solicitar'" class="secondCard">
+  <mat-card class="example-card">
     <mat-form-field>
-      <input matInput formControlName="cedula" placeholder="Cedula">
+      <div class="form-select">
+        <mat-select [(ngModel)]="proposito" placeholder="Propósito">
+          <mat-option value="Legalizacion de Notas de Primaria">Legalizacion de Notas de Primaria</mat-option>
+          <mat-option value="Constancia de Primaria">Constancia de Primaria</mat-option>
+          <mat-option value="Constancia de primaria diversificada">Constancia de primaria diversificada</mat-option>
+          <mat-option value="Legalizacion de titulo">Legalizacion de titulo</mat-option>
+          <mat-option value="Emision de titulo de libre escolaridad">Emision de titulo de libre escolaridad</mat-option>
+          <mat-option value="Evaluacion">Evaluacion</mat-option>
+        </mat-select>
+      </div>
     </mat-form-field>
-
-    <mat-form-field>
-      <input matInput formControlName="nombre" placeholder="Nombres">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput formControlName="apellido" placeholder="Apellidos">
-    </mat-form-field>
-
-    <h3 class="text">{{this.message}}</h3>
-    <ul>
+    <h3 class="titulo-example">El usuario tiene registrados los siguientes expedientes hasta la fecha</h3>
+     <ul>
       <li class="li-separation" *ngFor="let solicitud of solicitudes">
-       
+         {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
+    
       </li>
     </ul>
-    <button mat-raised-button color="warn" (click)="openModel(solicitud)">Agregar</button>
-    <button mat-raised-button color="warn" (click)="openModel(solicitud)">Cerrar</button>    
+    <button mat-raised-button color="warn" (click)="saveSolicitud()">Agregar</button>
   </mat-card>
 </div>

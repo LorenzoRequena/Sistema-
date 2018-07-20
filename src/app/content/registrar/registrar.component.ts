@@ -18,8 +18,8 @@ export class RegistrarComponent implements OnInit {
     telefono: new FormControl(''),
     correo: new FormControl(''),
   })
+  proposito:String;
   disableB: boolean = false;
-  message: String;
   action: String;
   view: String = 'search';
   cedula: String;
@@ -28,30 +28,48 @@ export class RegistrarComponent implements OnInit {
 
 
 
+
   constructor(private register: RegistrarService, private snackBar: MatSnackBar, private consultar: ConsultarService) { }
 
   ngOnInit() {
   }
+  parsearFecha(fecha){
+    return new Date(fecha).toLocaleDateString("en-US");
+  
+    }
   changeView(value: String) {
 
     return this.view = value;
   }
   search() {
     this.consultar.searchSolicitante(this.cedula).then((resp: any) => {
-      if (resp.cedula) {
-        this.consultar.searchSolicitud(resp.cedula, "cedula").then(result => this.solicitudes = result)
+      console.log(resp);
+      if (resp[0] && resp[0].cedula) {
+        this.consultar.searchSolicitud(resp[0].cedula, "cedula").then(result => {
+          this.solicitudes = result
+          console.log(result);
+          this.changeView("solicitar");
+        })
       } else {
         this.changeView("register")
       }
     });
-  }
+    }
+    saveSolicitud(){
+      this.register.saveSolicitud({proposito: this.proposito, cedula: this.cedula}).then((resp:any)=>{
+        console.log(resp);
+        this.search();
+        this.snackBar.open("Se ha registrado por el numero de expediente: " + resp,"Ocultar",{
+          duration:10000,
+        });
+      })    
+    }
 
   save() {
     this.disableB = true;
-    this.register.saveSolicitante(this.registerForm.value).then(resp => {
+    this.register.saveSolicitante(this.registerForm.value).then((resp:any) => {
       console.log(resp);
-
-      this.snackBar.open("Nro de expediente generado: " + resp, 'Salir', {
+      this.snackBar.open("Se ha registrado exitosamente con la C.I : " + resp.cedula, 'Ocultar', {
         duration: 10000,
 
       });
@@ -59,7 +77,6 @@ export class RegistrarComponent implements OnInit {
       this.registerForm.reset();
       this.disableB = false;
     });
-    // console.log(this.registerForm.value);
   }
 
 }

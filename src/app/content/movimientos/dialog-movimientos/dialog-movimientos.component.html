@@ -1,3 +1,4 @@
+<form [formGroup]="registerForm" >
 <div class="example">
     <mat-form-field>
         <input readOnly matInput [value]="data.cedula" placeholder="Encargado">
@@ -5,7 +6,6 @@
       <mat-form-field>
         <input readOnly matInput [value]="data.localizacion" placeholder="localizacion">
       </mat-form-field>
-      <form [formGroup]="registerForm" >
           <mat-form-field>
               <mat-select formControlName="encargado" placeholder="Encargar a ">
               <mat-option value="Pedrio Perez">Pedrito Perez</mat-option>
@@ -23,8 +23,8 @@
           <mat-option value="Taquilla de salida">Taquilla de salida</mat-option>
           </mat-select>
      </mat-form-field>
-     </form>
-</div>
+    </div>
+</form>
 <div class="button">
     <button mat-raised-button  color="warn" (click)="mover()">Mover</button>
  <button mat-raised-button class="separar" color="warn" (click)="close()">Cerrar</button>

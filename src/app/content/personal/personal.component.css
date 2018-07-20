@@ -5,5 +5,19 @@
     width: 32%;
     margin-left: 31%;
     margin-bottom: 5%;
+    margin-top: 2%;
+
   
+  }
+
+  .claseChips{
+    margin-top: -3%;
+    margin-left: 42%;
+    margin-bottom: 2%; 
+   }
+  .example-card{
+    background: #EFE9E7; 
+    width: 22%;
+    margin-left: 35%;
+    text-align: center;
   }

@@ -1,5 +1,5 @@
 <div *ngIf="islogin">
-  <app-header></app-header>
+  <app-header [sidenav]="sidenav"></app-header>
 </div>
 <mat-sidenav-container class="example-container">
   <mat-sidenav class="sidenav" [ngStyle]="{'opacity':islogin ? '100' : '0' }" #sidenav mode="side" [(opened)]="opened">
@@ -17,7 +17,7 @@
       </div>
       </mat-sidenav>
   <mat-sidenav-content>
-    <button *ngIf="islogin" (click)="sidenav.toggle()">|||||</button>
+    <!-- <button *ngIf="islogin" (click)="sidenav.toggle()">|||||</button> -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

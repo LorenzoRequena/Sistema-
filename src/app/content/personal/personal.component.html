@@ -1,18 +1,41 @@
 <mat-card class="Card">
   Personal</mat-card>
 
-<div>
+<div class="claseChips">
+  <mat-chip-list>
+    <mat-chip color="warn" selected="true" (click)="change('register')">Registrar</mat-chip>
+    <mat-chip color="warn" selected="true" (click)="change('search')">Buscar</mat-chip>
+  </mat-chip-list>
+
+</div>
+
+
+<mat-card class="example-card">
+<div *ngIf="view=='register'">
   <form [formGroup]=registerForm>
     <mat-form-field>
       <input matInput formControlName="cedula" placeholder="Cedula">
     </mat-form-field>
     <mat-form-field>
-      <input matInput formControlName="nombres" placeholder="Nombres">
+      <input matInput formControlName="nombre" placeholder="Nombre">
     </mat-form-field>
     <mat-form-field>
-      <input matInput formControlName="apellidos" placeholder="Apellidos">
+      <input matInput formControlName="apellido" placeholder="Apellido">
     </mat-form-field>
   </form>
-  <button mat-raised-button color="warn" (click)="search()">Registrar</button>
+  <button mat-raised-button color="warn" (click)="save()">Registrar</button>
+  
+ </div>
+  
+  <div *ngIf="view=='search'">
+  
+    <mat-form-field>
+      <input matInput [(ngModel)]="cedulaBuscar" placeholder="Cedula">
+    </mat-form-field>
+  
+    <button mat-raised-button color="warn" (click)="openModel()">Buscar</button>
+  </div>
+</mat-card>
 
-</div>
+
+

@@ -15,7 +15,10 @@ export class ConsultarService {
   }
   
  searchSolicitante(clave:any ){
-   return this.http.get(this.url + '/solicitantes/cedula/ '+ clave).toPromise();
+   return this.http.get(this.url + '/solicitantes/cedula/'+ clave).toPromise();
  }
- 
+ searchPersonal(clave:any){
+   console.log(clave)
+   return this.http.get(this.url +'/personal/bycedula/'+ clave).toPromise();
+ } 
 }

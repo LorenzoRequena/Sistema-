@@ -11,4 +11,11 @@ export class RegistrarService {
   saveSolicitante(data: any) {
     return this.http.post(this.url + '/solicitantes', data).toPromise();
   }
+  savePersonal(data:any){
+   return this.http.post(this.url + '/personal', data).toPromise();
+  }
+  saveSolicitud(data:any){
+    return this.http.post(this.url + '/solicitudes', data).toPromise();
+
+  }
 }

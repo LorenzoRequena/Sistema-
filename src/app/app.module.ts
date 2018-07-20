@@ -19,6 +19,7 @@ import { DialogComponent } from './content/consultar/dialog/dialog.component';
 import { DialogMovimientosComponent } from './content/movimientos/dialog-movimientos/dialog-movimientos.component';
 import { UbicacionComponent } from './content/ubicacion/ubicacion.component';
 import { PersonalComponent } from "./content/personal/personal.component";
+import { DialogPersonalComponent } from './content/personal/dialog-personal/dialog-personal.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PersonalComponent } from "./content/personal/personal.component";
     DialogComponent,
     DialogMovimientosComponent,
     UbicacionComponent,
-    PersonalComponent
+    PersonalComponent,
+    DialogPersonalComponent
     ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { PersonalComponent } from "./content/personal/personal.component";
   bootstrap: [AppComponent],
   entryComponents:[
     DialogComponent,
-    DialogMovimientosComponent
+    DialogMovimientosComponent,
+    DialogPersonalComponent
 
   ]
   //schemas: [CUSTOM_ELEMENTS_SCHEMA]
