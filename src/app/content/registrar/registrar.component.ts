@@ -19,12 +19,14 @@ export class RegistrarComponent implements OnInit {
     correo: new FormControl(''),
   })
   proposito:String;
+  nombre:any;
   disableB: boolean = false;
   action: String;
   view: String = 'search';
   cedula: String;
   by: String = 'cedula';
   solicitudes: any;
+  solicitante:any;
 
 
 
@@ -44,6 +46,7 @@ export class RegistrarComponent implements OnInit {
   search() {
     this.consultar.searchSolicitante(this.cedula).then((resp: any) => {
       console.log(resp);
+      this.solicitante = resp[0];
       if (resp[0] && resp[0].cedula) {
         this.consultar.searchSolicitud(resp[0].cedula, "cedula").then(result => {
           this.solicitudes = result
@@ -51,6 +54,7 @@ export class RegistrarComponent implements OnInit {
           this.changeView("solicitar");
         })
       } else {
+       
         this.changeView("register")
       }
     });
@@ -71,9 +75,9 @@ export class RegistrarComponent implements OnInit {
       console.log(resp);
       this.snackBar.open("Se ha registrado exitosamente con la C.I : " + resp.cedula, 'Ocultar', {
         duration: 10000,
-
       });
-
+      this.cedula = resp.cedula;
+      this.search();
       this.registerForm.reset();
       this.disableB = false;
     });

@@ -17,10 +17,17 @@ router.post('/', function(req, res, next) {
     });
   });
   router.post('/actualizar/:cedula', function(req, res, next) {
+    console.log(JSON.stringify(req.params), "estoy aqui")
     console.log(req.body);  
     Personal.findOneAndUpdate({cedula: req.params.cedula}, req.body, {new: true}, function (err, post) {
       if (err) return next(err);
       res.json(post);
+    });
+  });
+  router.get('/', function(req, res, next) {
+    Personal.find(function (err, products) {
+      if (err) return next(err);
+      res.json(products);
     });
   });
 module.exports = router;

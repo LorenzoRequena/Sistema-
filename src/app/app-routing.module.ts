@@ -22,8 +22,8 @@ const routes: Routes = [
   { path: 'movimientos', component: MovimientosComponent, canActivate: [GuardService] },
   { path: 'reportes', component: ReportesComponent, canActivate: [GuardService] },
   { path: 'admin', component: AdminComponent, canActivate: [GuardService] },
-  { path: 'personal', component: PersonalComponent, canActivate: [GuardService] },
-  { path: 'ubicacion', component: UbicacionComponent, canActivate: [GuardService] }
+  { path: 'personal', component: PersonalComponent, canActivate: [GuardService] }
+
 
 ];
 

@@ -39,9 +39,9 @@
   text-align: center;
 border-radius: 10%;
 }
-h3{
+h5{
   text-align: center;
-  color: red;
+  color:black;
 }
 .secondCard{
     width: 36%;
@@ -51,4 +51,15 @@ h3{
  .example-card{
     background: #EFE9E7;
 
+}
+
+.card-solicitudes{
+  margin-bottom: 5%;
+}
+.example-uls{
+  list-style-type: none;
+  display: inline;
+}
+.material-icons{
+  color: red;
 }

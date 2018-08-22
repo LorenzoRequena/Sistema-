@@ -1,32 +1,49 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatSnackBar } from '../../../../node_modules/@angular/material';
+import { DialogUbicacionComponent } from './dialog-ubicacion/dialog-ubicacion.component';
+import { ConsultarService } from '../consultar/consultar.service';
+
 @Component({
   selector: 'app-ubicacion',
   templateUrl: './ubicacion.component.html',
   styleUrls: ['./ubicacion.component.css']
 })
 export class UbicacionComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'cedula', 'nombre', 'apellido', 'localizacion'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  encargado:any;
+  cedulaPersonal:any;
+  cedula:any;
+  encargados:any[];
+  localizacion:any;
+  localizaciones:any[];
+  constructor(
+    private dialog:MatDialog,
+    private consultar: ConsultarService,
+    private mat:MatSnackBar
+  ){}
+  openModel(data){
+    const dialogRef =  this.dialog.open(DialogUbicacionComponent,{
+      width: '500px',
+      data: data
+    })
+  }
+  search(){
+    this.consultar.searchPersonal(this.cedulaPersonal).then(resp =>{
+      console.log(resp);
+      if(resp[0] && resp[0].cedula){
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
+        this.openModel(resp[0])
+      }else{
+        this.mat.open("Personal no encontrado" , 'Salir', {
+          duration: 3000,
+        })
+        
+      }
+        
+    })
+  }
+  
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+  
   }
 }
 
-export interface PeriodicElement {
-  nombre: String;
-  position: number;
-  apellido: String;
-  cedula: String;
-  localizacion: String;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, cedula: '23951373', nombre: 'Lorenzo', apellido: 'Requena', localizacion: 'Tipeo'},
-  {position: 2, cedula: '23951373', nombre: 'Lorenzo', apellido: 'Requena', localizacion: 'Tipeo'},
-  {position: 3, cedula: '23951373', nombre: 'Lorenzo', apellido: 'Requena', localizacion: 'Tipeo'},
-  {position: 4, cedula: '23951373', nombre: 'Lorenzo', apellido: 'Requena', localizacion: 'Tipeo'},
-];

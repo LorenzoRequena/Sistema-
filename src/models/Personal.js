@@ -6,5 +6,6 @@ var PersonalSc = new mongoose.Schema({
     nombre: String,
     cedula: String,
     apellido: String,
+    ubicacion:String
   });
   module.exports = mongoose.model('Personal',PersonalSc);

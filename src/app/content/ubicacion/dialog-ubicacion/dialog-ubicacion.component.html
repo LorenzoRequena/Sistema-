@@ -1,0 +1,20 @@
+<div class="example-ubicacion">
+    <mat-form-field>
+        <input   matInput readonly [value]="data.cedula ? data.cedula:'ninguno'" placeholder="Cedula">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input   matInput readonly  [value]="data.encargado ? data.encargado.nombre +' '+data.encargado.apellido : 'Ninguno'" placeholder="Personal">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input   matInput readonly [value]="data.localizacion" placeholder="Ubicacion">
+    </mat-form-field>
+    <mat-form-field>
+        <input   matInput readonly  placeholder="Mover a :">
+       </mat-form-field>
+    <!-- <button mat-raised-button  color="warn" (click)="mover()">Mover</button> -->
+    <button mat-raised-button  color="warn" (click)="close()">Cerrar</button>
+
+    
+</div>

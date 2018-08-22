@@ -17,7 +17,6 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HomeComponent } from './content/home/home.component';
 import { DialogComponent } from './content/consultar/dialog/dialog.component';
 import { DialogMovimientosComponent } from './content/movimientos/dialog-movimientos/dialog-movimientos.component';
-import { UbicacionComponent } from './content/ubicacion/ubicacion.component';
 import { PersonalComponent } from "./content/personal/personal.component";
 import { DialogPersonalComponent } from './content/personal/dialog-personal/dialog-personal.component';
 
@@ -34,10 +33,9 @@ import { DialogPersonalComponent } from './content/personal/dialog-personal/dial
     HomeComponent,
     DialogComponent,
     DialogMovimientosComponent,
-    UbicacionComponent,
     PersonalComponent,
-    DialogPersonalComponent
-    ],
+    DialogPersonalComponent,
+        ],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -53,9 +51,8 @@ import { DialogPersonalComponent } from './content/personal/dialog-personal/dial
   entryComponents:[
     DialogComponent,
     DialogMovimientosComponent,
-    DialogPersonalComponent
-
-  ]
+    DialogPersonalComponent,
+   ]
   //schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { 

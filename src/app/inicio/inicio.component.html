@@ -1,6 +1,6 @@
 <mat-card class="first">{{this.message}}</mat-card>
 <mat-card class="login">
-  <div>    
+  <div class="example-card">    
     <mat-form-field>
       <input class="form-example" [(ngModel)]="username" matInput placeholder="Nombre de usuario">
     </mat-form-field>
@@ -22,6 +22,5 @@
     <!-- <button mat-raised-button color="warn" (click)="saveUser()">Crear</button> -->
     <button class="button" mat-raised-button color="warn" (click)="loginUser()">Login</button>
   </div>
-
-  <h4 class="color">{{this.messageError}}</h4>
+  
 </mat-card>

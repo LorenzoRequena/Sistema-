@@ -19,4 +19,10 @@ export class MovimientosService {
       .post(this.url + '/solicitudes/actualizar/' + expediente, data)
       .toPromise();
   }
+  loadEncargados(){
+    return this.http.get(this.url + '/personal/').toPromise();
+  }
+  updatePersonal(data,cedula){
+   return this.http.post(this.url + '/personal/actualizar/'+cedula, data).toPromise();
+  }
 }

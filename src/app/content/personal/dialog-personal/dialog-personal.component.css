@@ -1,0 +1,9 @@
+.example-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button-example{
+    margin-left: 40%;
+    margin-top: 10%;
+}

@@ -23,9 +23,9 @@ export class InicioComponent implements OnInit {
       console.log(resp);
       if(!resp){
         this.login.isLogged.next(false);
-        this.login.userData.next({})  
+        this.login.userData.next({}) 
         return;
-      }
+      }else
       this.login.isLogged.next(true);
       this.login.userData.next(resp)
       this.router.navigate(['inicio'])

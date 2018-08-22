@@ -1,3 +1,33 @@
-<p>
-  dialog-personal works!
-</p>
+<div class="example-form">
+    <mat-form-field>
+      <input  matInput readonly [value]="data.cedula " placeholder="Cedula">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input  matInput readonly  [value]="data.nombre" placeholder="Nombre">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input  matInput readonly [value]="data.apellido" placeholder="Apellido">
+      </mat-form-field>
+
+      <mat-form-field>
+          <input  matInput readonly [value]="data.ubicacion ? data.ubicacion:'Ninguna'" placeholder="Ubicacion">
+        </mat-form-field>
+       
+        <mat-form-field>
+
+          <mat-select placeholder="Mover a" [value]="ubicacion">
+             <mat-option *ngFor="let local of ubicaciones" [value]="local.viewValue">
+               {{local.viewValue}}
+             </mat-option>
+           </mat-select>
+         
+        </mat-form-field>
+     
+
+        <div>
+            <button mat-raised-button class="button-example" color="warn" (click)="mover()">Mover</button>
+            <button mat-raised-button class="button-example" color="warn" (click)="close()">Cerrar</button>
+        </div>
+  </div>

@@ -1,44 +1,41 @@
-<mat-card class="consult-example" >Consultar Documento</mat-card>
+<mat-card class="consult-example">Consultar documento</mat-card>
 
 <div class="example-container">
-  <div class="chips-container">
-   <mat-chip-list>
-    <mat-chip color="warn" selected="true"(click)="change('cedula')" >Por numero de cedula</mat-chip>
-    <mat-chip color="warn" selected="true" (click)="change('expediente')">Por numero de expediente</mat-chip>
-  </mat-chip-list> 
-    </div>
-
-    <div class="formField-example">
-       <mat-form-field >
-       <input class="form-example" [(ngModel)]="cedula" matInput [placeholder]=" 'Nro. de ' + by">
-       </mat-form-field>
-    </div>
-
-        <div class="button-container">
-          <button mat-raised-button color="warn" (click)="search()">Consultar</button>
-         
-         </div>
-
-         
-         <div class="consult-list" *ngIf="solicitudes">
-           <mat-card class="matcard-example">
-              <h3 class="text">{{this.message}}</h3>
-            <ul>
-              <li class="li-separation" *ngFor="let solicitud of solicitudes">
-               {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
-               <span>{{solicitud.status}}</span>
-               <button mat-raised-button color="warn" (click)="openModel(solicitud)">Ver</button>
-              <!-- <button (click)="openModel(solicitud)">Ver</button>-->
-             </li>
-             </ul>
-          </mat-card>
-          
+  <mat-card class="cardConsult">
+      <div class="chips-container">
+          <mat-chip-list>
+            <mat-chip color="warn" selected="true" (click)="change('cedula')">Por numero de cedula</mat-chip>
+            <mat-chip color="warn" selected="true" (click)="change('expediente')">Por numero de expediente</mat-chip>
+          </mat-chip-list>
+        </div>
+      
+        <div class="formField-example">
+          <mat-form-field>
+            <input class="form-example" [(ngModel)]="cedula" matInput [placeholder]=" 'Nro. de ' + by">
+          </mat-form-field>
         </div>
 
-      </div>
-
-
-
-
+  </mat-card>
   
-   
+
+  <div class="button-container">
+    <button mat-raised-button color="warn" (click)="search()">Consultar</button>
+
+  </div>
+
+
+  <div class="consult-list" *ngIf="solicitudes">
+    <mat-card class="matcard-example">
+      <h3 class="text">Documentos registrados hasta la fecha </h3>
+      <ul>
+        <li class="li-separation" *ngFor="let solicitud of solicitudes">
+          {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
+          <span>{{solicitud.status}}</span>
+          <button mat-raised-button color="warn" (click)="openModel(solicitud)">Ver</button>
+        </li>
+      </ul>
+    </mat-card>
+
+  </div>
+
+</div>

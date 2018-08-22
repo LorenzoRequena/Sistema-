@@ -6,6 +6,7 @@ import { MatSnackBar, MatDialog } from '../../../../node_modules/@angular/materi
 import { DialogPersonalComponent } from './dialog-personal/dialog-personal.component';
 
 
+
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.component.html',
@@ -15,24 +16,33 @@ export class PersonalComponent implements OnInit {
   registerForm = new FormGroup({
   nombre: new FormControl(''),
   apellido: new FormControl(''),
-  cedula: new FormControl(''),  
+  cedula: new FormControl('')  
   });
-  cedulaBuscar:String;
+  ubicacion:any;
+  encargado:any;
+  nombre:any;
+  apellido:any;
+  cedula:any;
+  cedulaBuscar:any;
   personales:any;
+  message:any;
+ 
+  
   view:String = 'register';
 
   constructor(private personal:RegistrarService, private consultar:ConsultarService,
-     private mat:MatSnackBar, private dialog: MatDialog) { }
+     private mat:MatSnackBar, public dialog:MatDialog) { }
 
   ngOnInit() {
   }
-
   openModel(data){
-    const dialogRef = this.dialog.open(DialogPersonalComponent, {
-      width: '500px',
+    const dialogRef = this.dialog.open(DialogPersonalComponent,{
+      width:'500px',
       data:data
-    });
+    }) 
+
   }
+ 
 
   save(){
     this.personal.savePersonal(this.registerForm.value).then(resp =>{
@@ -48,7 +58,17 @@ export class PersonalComponent implements OnInit {
   search(){
     this.consultar.searchPersonal(this.cedulaBuscar).then(resp =>{
       console.log(resp);
-      this.cedulaBuscar = "";
+      if(resp[0] && resp[0].cedula){
+        this.cedulaBuscar="";
+        this.openModel(resp[0])
+      }else{
+        this.mat.open("Personal no encontrado" , 'Salir', {
+          duration: 3000,
+        })
+        this.cedulaBuscar = "";
+        console.log("Cedula no encontrada")
+      }
+        
     })
   }
   change(view:String){

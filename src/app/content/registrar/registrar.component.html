@@ -1,5 +1,5 @@
 <div>
-  <mat-card class="register-example">Registrar Documento</mat-card>
+  <mat-card class="register-example">Registrar</mat-card>
 </div>
 
 <div *ngIf="view=='register'">
@@ -7,7 +7,7 @@
     <mat-grid-list cols="2" rowHeight="6:1">
       <mat-grid-tile>
         <mat-form-field>
-          <input matInput formControlName="cedula" placeholder="Cedula">
+          <input matInput formControlName="cedula" placeholder="Cedula" maxlength="8">
         </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
@@ -43,7 +43,7 @@
 
   <mat-card class="Card">
     <mat-form-field>
-      <input matInput [(ngModel)]="cedula" placeholder="Cedula">
+      <input matInput [(ngModel)]="cedula" placeholder="Cedula" maxlength="8">
     </mat-form-field>
     <div>
       <button mat-raised-button color="warn" (click)="search()" [disabled]="disableB">Buscar</button>
@@ -67,13 +67,17 @@
         </mat-select>
       </div>
     </mat-form-field>
-    <h3 class="titulo-example">El usuario tiene registrados los siguientes expedientes hasta la fecha</h3>
-     <ul>
-      <li class="li-separation" *ngFor="let solicitud of solicitudes">
-         {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
-    
-      </li>
-    </ul>
+    <h5 class="titulo-example">El usuario {{solicitante.nombre}} portador de la cedula {{solicitante.cedula}} tiene registrados los siguientes expedientes
+      hasta la fecha</h5>
+
+    <mat-card class="card-solicitudes">
+      <ul class="example-uls">
+         
+        <li class="li-separation" *ngFor="let solicitud of solicitudes"><i class="material-icons">library_books</i>
+          {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
+        </li>
+      </ul>
+    </mat-card>
     <button mat-raised-button color="warn" (click)="saveSolicitud()">Agregar</button>
   </mat-card>
 </div>

@@ -14,8 +14,8 @@ export class ConsultarComponent implements OnInit {
   
 
   constructor(private consultar:ConsultarService, private dialog:MatDialog) { }
-  message:String = "Documentos registrados de la persona fulanito";
-  cedula :any;
+  solicitante:any;
+  cedula:any;
   localizacion:any;
   solicitudes:any;
   proposito:any;
@@ -49,5 +49,6 @@ search(){
 change(by:String){
 
   return this.by = by;
+ 
 }
 }

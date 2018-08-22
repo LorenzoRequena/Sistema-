@@ -1,20 +1,20 @@
-
-  
 <div class="example">
   <mat-form-field>
-    <input readOnly matInput [value]="data.proposito" placeholder="Proposito">
+    <input  matInput  readonly [value]="data.proposito" placeholder="Proposito">
   </mat-form-field>
 
   <mat-form-field>
-    <input readOnly matInput [value]="data.localizacion" placeholder="Localizacion">
+    <input  matInput readonly [value]="data.localizacion ? data.localizacion : 'Ninguno'" placeholder="Localizacion">
   </mat-form-field>
 
   <mat-form-field>
-    <input readOnly matInput [value]="" placeholder="Observacion">
+    <input  matInput readonly [value]="data.encargado ? data.encargado.nombre +' '+data.encargado.apellido : 'Ninguno'" placeholder="Encargado">
   </mat-form-field>
 
   <mat-form-field>
-    <input readOnly  matInput [value]="data.encargado" placeholder="Encargado">
+    <input  matInput readonly [value]="data.observacion" placeholder="Observacion">
   </mat-form-field>
+  
+
 </div>
 <button mat-raised-button color="warn" class="button" (click)="close()">Cerrar</button>

@@ -1,28 +1,36 @@
 <form [formGroup]="registerForm" >
 <div class="example">
     <mat-form-field>
-        <input readOnly matInput [value]="data.cedula" placeholder="Encargado">
+        <input   matInput readonly  [value]="data. encargado ? data.encargado.nombre +' '+data.encargado.apellido : 'Ninguno'" placeholder="Encargado">
     </mat-form-field>
+    <mat-form-field>
+      <input   matInput readonly  [value]="data. observacion ? data.observacion : ' '" placeholder="Observacion">
+  </mat-form-field>
       <mat-form-field>
-        <input readOnly matInput [value]="data.localizacion" placeholder="localizacion">
-      </mat-form-field>
-          <mat-form-field>
-              <mat-select formControlName="encargado" placeholder="Encargar a ">
-              <mat-option value="Pedrio Perez">Pedrito Perez</mat-option>
-              <mat-option value="Pedro Rosa">Pedro rosa</mat-option>
-              <mat-option value="Julio Cesar">Julio Cesar</mat-option>
-              </mat-select>
+      <input  matInput readonly [value]="data.localizacion ? data.localizacion : 'Ninguno'" placeholder="Lugar donde se encuentra"> 
       </mat-form-field>
       <mat-form-field>
-          <mat-select  formControlName="localizacion" placeholder="Mover a ">
-          <mat-option value="Verificar y confirmar">Verificar y confirmar</mat-option>
-          <mat-option value="Tipeo">Tipeo</mat-option>
-          <mat-option value="verificacion de titulo">verificacion de titulo</mat-option>
-          <mat-option value="Legalizacion">Legalización</mat-option>
-          <mat-option value="Firma">Firma</mat-option>
-          <mat-option value="Taquilla de salida">Taquilla de salida</mat-option>
-          </mat-select>
-     </mat-form-field>
+        <mat-select placeholder="Encargado" formControlName="encargado" >
+          <mat-option *ngFor="let encargado of encargados" [value]="encargado">
+            {{encargado.nombre}} {{encargado.apellido}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Lugar a donde se movera" formControlName="localizacion" >
+          <mat-option *ngFor="let local of localizaciones" [value]="local.viewValue">
+            {{local.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Observacion" formControlName="observacion" >
+          <mat-option *ngFor="let obser of observaciones" [value]="obser.viewValue">
+            {{obser.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 </form>
 <div class="button">
