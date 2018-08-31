@@ -7,6 +7,7 @@ var session = require('express-session');
 var solicitud = require('./routes/solicitudes');
 var solicitantes = require('./routes/solicitantes');
 var users = require('./routes/user.js');
+var respaldo = require('./routes/respaldo.js');
 var personal = require('./routes/personal.js');
 var app = express();
 var MongoStore = require('connect-mongo')(session);
@@ -52,6 +53,7 @@ app.use('/solicitantes', solicitantes);
 app.use('/solicitudes', solicitud);
 app.use('/user', users);
 app.use('/personal',personal);
+app.use('/respaldo', respaldo);
 
 
 // catch 404 and forward to error handler

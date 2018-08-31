@@ -14,6 +14,7 @@ export class DialogMovimientosComponent implements OnInit {
     observacion: new FormControl('')
     
   });
+  
   observaciones: any[] = [
     {value: 'ob-0', viewValue: 'Observacion por hoja de registro'},
     {value: 'ob-1', viewValue: 'Observacion por dato falso'},
@@ -63,8 +64,21 @@ export class DialogMovimientosComponent implements OnInit {
     console.log(this.registerForm.value, this.data, 'jejeje');
     this.movilizar.updatesolicitud(this.registerForm.value,this.data.expediente).then((resp: any) => {
       this.close();
+      console.log(resp);
       this.snackBar.open('Registro actualizado: ' + resp.expediente, 'Salir', {
         duration: 10000
+      });
+      this.movilizar.searchSolicitud(this.data.expediente, 'expediente').then(resp => {
+           
+        console.log(resp, typeof resp);
+             
+            if(resp[0]){
+
+             this.movilizar.saveExpediente(resp[0]).then(resp =>{
+            console.log(resp,"completo!!!")
+             
+          })
+        }
       });
     });
   }

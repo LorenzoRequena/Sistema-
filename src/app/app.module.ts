@@ -19,7 +19,10 @@ import { DialogComponent } from './content/consultar/dialog/dialog.component';
 import { DialogMovimientosComponent } from './content/movimientos/dialog-movimientos/dialog-movimientos.component';
 import { PersonalComponent } from "./content/personal/personal.component";
 import { DialogPersonalComponent } from './content/personal/dialog-personal/dialog-personal.component';
+import { SeguimientoComponent } from './content/seguimiento/seguimiento.component';
+import {MatInputModule} from '@angular/material/input';
 
+/*Declarar todos los components aca*/
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +38,7 @@ import { DialogPersonalComponent } from './content/personal/dialog-personal/dial
     DialogMovimientosComponent,
     PersonalComponent,
     DialogPersonalComponent,
+    SeguimientoComponent
         ],
   imports: [
     BrowserModule,
@@ -43,17 +47,19 @@ import { DialogPersonalComponent } from './content/personal/dialog-personal/dial
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    MatInputModule
 
   ],
   providers: [],
   bootstrap: [AppComponent],
+  /*Importación de los Dialogs creado en el codigo*/
   entryComponents:[
     DialogComponent,
     DialogMovimientosComponent,
     DialogPersonalComponent,
    ]
-  //schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class AppModule { 
 

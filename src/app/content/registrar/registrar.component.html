@@ -1,38 +1,50 @@
-<div>
-  <mat-card class="register-example">Registrar</mat-card>
-</div>
-
 <div *ngIf="view=='register'">
-  <form [formGroup]="registerForm">
-    <mat-grid-list cols="2" rowHeight="6:1">
-      <mat-grid-tile>
-        <mat-form-field>
-          <input matInput formControlName="cedula" placeholder="Cedula" maxlength="8">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <input matInput formControlName="nombre" placeholder="Nombres">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <input matInput formControlName="apellido" placeholder="Apellidos">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <input matInput formControlName="correo" placeholder="Correo">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <input matInput formControlName="telefono" placeholder="Telefono">
-        </mat-form-field>
-      </mat-grid-tile>
+  <div>
+    <mat-card class=example-registerCard>
+      Registrar 
+    </mat-card>
+  </div>
 
-    </mat-grid-list>
-  </form>
+  <mat-card class="example-card-box">
+  <form [formGroup]="registerForm">  
+        <mat-grid-list cols="2" rowHeight="6:1">
+            <mat-grid-tile>
+              <mat-form-field>
+                <input matInput formControlName="cedula" placeholder="Cedula" maxlength="8">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field>
+                <input matInput formControlName="nombre" placeholder="Nombres" maxlength="20">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field>
+                <input matInput formControlName="apellido" placeholder="Apellidos" maxlength="20">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" formControlName="correo"
+                           [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="registerForm.hasError('email') && !registerForm.hasError('required')">
+                      Por favor colocar una direccion email valido!
+                    </mat-error>
+                    <mat-error *ngIf="registerForm.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field>
+                <input matInput formControlName="telefono" placeholder="Telefono" maxlength="12">
+              </mat-form-field>
+            </mat-grid-tile>
+      
+          </mat-grid-list>
+        </form>
+    </mat-card>
+    
   <div class="example-button">
     <button mat-raised-button (click)="save('red-snackbar')" color="warn" [disabled]="disableB">Registrar</button>
   </div>
@@ -40,13 +52,16 @@
 
 
 <div *ngIf="view=='search'">
+  <div>
+    <mat-card class="register-example">Consultar </mat-card>
+  </div>
 
   <mat-card class="Card">
     <mat-form-field>
       <input matInput [(ngModel)]="cedula" placeholder="Cedula" maxlength="8">
     </mat-form-field>
     <div>
-      <button mat-raised-button color="warn" (click)="search()" [disabled]="disableB">Buscar</button>
+      <button mat-raised-button color="warn" (click)="search()">Consultar</button>
     </div>
 
   </mat-card>
@@ -54,6 +69,12 @@
 </div>
 
 <div *ngIf="view=='solicitar'" class="secondCard">
+  <div>
+    <mat-card class="example-propositoCard">
+      Agregado de proposito
+    </mat-card>
+
+  </div>
   <mat-card class="example-card">
     <mat-form-field>
       <div class="form-select">
@@ -72,8 +93,9 @@
 
     <mat-card class="card-solicitudes">
       <ul class="example-uls">
-         
-        <li class="li-separation" *ngFor="let solicitud of solicitudes"><i class="material-icons">library_books</i>
+
+        <li class="li-separation" *ngFor="let solicitud of solicitudes">
+          <i class="material-icons">library_books</i>
           {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
         </li>
       </ul>

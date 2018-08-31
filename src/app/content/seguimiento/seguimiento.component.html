@@ -1,0 +1,56 @@
+
+<div *ngIf="view=='search'">
+        <mat-card class="example-carta">Seguimiento Documento</mat-card>
+        <mat-card class="example-box">
+          <mat-form-field>
+            <input matInput  [(ngModel)]="expediente" placeholder="Numero de expediente" maxlength="9">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="warn"  (click)="search()">Buscar</button>
+          </div>
+        </mat-card>
+
+</div>
+
+
+<div *ngIf="view=='reporte'">
+  <mat-card class="card-examples">Seguimiento de Documento</mat-card>
+        <table mat-table [dataSource]="movimientos" class="mat-elevation-z8">
+
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="expediente">
+                  <th mat-header-cell *matHeaderCellDef> Expediente</th>
+                  <td mat-cell *matCellDef="let element"> {{element.expediente}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="encargado">
+                  <th mat-header-cell *matHeaderCellDef> Encargado </th>
+                  <td mat-cell *matCellDef="let element"> {{element.encargado.nombre}}
+                      {{element.encargado.apellido}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="usuario">
+                  <th mat-header-cell *matHeaderCellDef> Usuario </th>
+                  <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="departamento">
+                  <th mat-header-cell *matHeaderCellDef>Departamento</th>
+                  <td mat-cell *matCellDef="let element"> {{element.localizacion}} </td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="fecha">
+                  <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                  <td mat-cell *matCellDef="let element"> {{parsearFecha(element.created)}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              
+              
+</div>

@@ -9,20 +9,21 @@ export class MovimientosService {
 
   url: String = 'http://localhost:3000';
   searchSolicitud(clave: any, by: any) {
-    return this.http
-      .get(this.url + '/solicitudes/by' + by + '/' + clave)
-      .toPromise();
+    return this.http.get(this.url + '/solicitudes/by' + by + '/' + clave).toPromise();
   }
   updatesolicitud(data, expediente) {
-    console.log(data, expediente);
-    return this.http
-      .post(this.url + '/solicitudes/actualizar/' + expediente, data)
-      .toPromise();
+  return this.http.post(this.url + '/solicitudes/actualizar/' + expediente, data).toPromise();
   }
   loadEncargados(){
     return this.http.get(this.url + '/personal/').toPromise();
   }
   updatePersonal(data,cedula){
    return this.http.post(this.url + '/personal/actualizar/'+cedula, data).toPromise();
+  }
+  searchRespaldo(expediente){
+    return this.http.get(this.url + '/respaldo/expediente/'+ expediente).toPromise();
+  }
+  saveExpediente(data:any){
+    return this.http.post(this.url + '/respaldo/' , data).toPromise();
   }
 }

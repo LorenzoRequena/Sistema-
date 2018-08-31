@@ -1,64 +1,121 @@
-<mat-card class="card">Reporte de documento</mat-card>
-
-<mat-card class="secondcard">
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker1" placeholder="Desde" [formControl]="date">
-    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-    <mat-datepicker #picker1></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker2" placeholder="Hasta" [formControl]="serializedDate">
-    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-    <mat-datepicker #picker2></mat-datepicker>
-  </mat-form-field>
-</mat-card>
-
- <div class="button2">
-    <button mat-raised-button color="warn" (click)="generarReport()" >Generar Reporte</button>
+<div>
+    <mat-card class="card">Reporte de documento</mat-card>
+  
+    <div class="chips-examples">
+      <mat-chip-list>
+        <mat-chip color="warn" selected="true" selected="true" (click)="change('fecha')">Reporte por fecha </mat-chip>
+        <mat-chip color="warn" selected="true" selected="true" (click)="change('departamento')">Reporte por departamento</mat-chip>
+      </mat-chip-list>
+  
+    </div>
+  
+  
+  
+    <div *ngIf="view =='fecha'">
+  
+      <mat-card class="secondcard">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker1" placeholder="Desde" [(ngModel)]="fechaA" >
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker2" placeholder="Hasta" [(ngModel)]="fechaB" >
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+  
+        <div class="button2">
+          <button mat-raised-button color="warn" (click)="generarReport()">Generar Reporte</button>
+        </div>
+  
+        <!-- <div class="button">
+          <button mat-raised-button color="warn" (click)="downland()">Descargar PDF</button>
+        </div> -->
+  
+      </mat-card>
+    </div>
+  
+  
+  
+  
+    <div *ngIf="view=='departamento'">
+      <mat-card class="example-select">
+        <mat-form-field>
+          <mat-select placeholder="Eliga departamento" [(ngModel)] = "departamentoSelected">
+            <mat-option *ngFor="let depar of departamentos" [value]="depar.viewValue" >
+              {{depar.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <div class="button-depart">
+          <button mat-raised-button color="warn" (click)="generarReportDep()">Buscar</button>
+        </div>
+  
+      </mat-card>
+    </div>
+  
+        
+       <div *ngIf="view=='reporte'"  class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+  
+          <ng-container matColumnDef="expediente">
+            <th mat-header-cell *matHeaderCellDef> Nro de expediente </th>
+            <td mat-cell *matCellDef="let element"> {{element.expediente || 'Sin registro' }}  </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="proposito">
+            <th mat-header-cell *matHeaderCellDef> Proposito </th>
+            <td mat-cell *matCellDef="let element"> {{element.proposito || 'Sin registro' }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="encargado">
+            <th mat-header-cell *matHeaderCellDef> Encargado </th>
+            <td mat-cell *matCellDef="let element"> {{element.encargado ?  element.encargado.nombre + ' ' + element.encargado.apellido :'Sin registro'}}</td>
+          </ng-container>
+      
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  
+  
   </div>
   
-
-
- <div *ngIf="view == 'reporte'"  class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
-
-
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
-
+  <div *ngIf="view=='reporteDepar'"  class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+        
+          <ng-container matColumnDef="departamento">
+              <th mat-header-cell *matHeaderCellDef> Departamento </th>
+              <td mat-cell *matCellDef="let element"> {{element.localizacion}} </td>
+            </ng-container>
+  
+        <ng-container matColumnDef="expediente">
+          <th mat-header-cell *matHeaderCellDef> Nro de expediente </th>
+          <td mat-cell *matCellDef="let element"> {{element.expediente}} </td>
+        </ng-container>
     
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-    </ng-container>
-
+        <ng-container matColumnDef="proposito">
+          <th mat-header-cell *matHeaderCellDef> Proposito </th>
+          <td mat-cell *matCellDef="let element"> {{element.proposito}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="encargado">
+          <th mat-header-cell *matHeaderCellDef> Encargado </th>
+          <td mat-cell *matCellDef="let element"> {{element.encargado.nombre}} {{element.encargado.apellido}} </td>
+        </ng-container>
+    
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   
-    <ng-container matColumnDef="expediente">
-      <th mat-header-cell *matHeaderCellDef> Nro de expediente </th>
-      <td mat-cell *matCellDef="let element"> {{element.expediente}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="proposito">
-      <th mat-header-cell *matHeaderCellDef> Proposito </th>
-      <td mat-cell *matCellDef="let element"> {{element.proposito}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="encargado">
-      <th mat-header-cell *matHeaderCellDef> Encargado </th>
-      <td mat-cell *matCellDef="let element"> {{element.encargado}} </td>
-    </ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  <div class="button">
-    <button mat-raised-button color="warn" (click)="downland()">Descargar PDF</button>
+  
   </div>
-</div>
-
+  

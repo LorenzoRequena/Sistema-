@@ -11,7 +11,7 @@
       
         <div class="formField-example">
           <mat-form-field>
-            <input class="form-example" [(ngModel)]="cedula" matInput [placeholder]=" 'Nro. de ' + by">
+            <input class="form-example" [maxlength]="by === 'cedula' ? 8 : 9" [(ngModel)]="cedula" matInput [placeholder]=" 'Nro. de ' + by">
           </mat-form-field>
         </div>
 
@@ -29,6 +29,7 @@
       <h3 class="text">Documentos registrados hasta la fecha </h3>
       <ul>
         <li class="li-separation" *ngFor="let solicitud of solicitudes">
+          <i class="material-icons">library_books</i>
           {{solicitud.expediente}} - {{parsearFecha(solicitud.created)}}
           <span>{{solicitud.status}}</span>
           <button mat-raised-button color="warn" (click)="openModel(solicitud)">Ver</button>

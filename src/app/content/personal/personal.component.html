@@ -1,14 +1,11 @@
-<mat-card class="Card">
-  Personal</mat-card>
+<mat-card class="Card">Personal</mat-card>
 
 <div class="claseChips">
   <mat-chip-list>
     <mat-chip color="warn" selected="true" (click)="change('register')">Registrar</mat-chip>
     <mat-chip color="warn" selected="true" (click)="change('search')">Buscar</mat-chip>
   </mat-chip-list>
-
 </div>
-
 
 <mat-card class="example-card">
 <div *ngIf="view=='register'">
@@ -30,7 +27,7 @@
   <div *ngIf="view=='search'">
   
     <mat-form-field>
-      <input matInput [(ngModel)]="cedulaBuscar" placeholder="Cedula">
+      <input matInput [(ngModel)]="cedulaBuscar" maxlength="8" placeholder="Cedula">
     </mat-form-field>
   
     <button mat-raised-button color="warn" (click)="search()">Buscar</button>

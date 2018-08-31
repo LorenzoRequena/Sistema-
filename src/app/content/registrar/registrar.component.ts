@@ -3,30 +3,37 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegistrarService } from './registrar.service';
 import { MatSnackBar } from '@angular/material';
 import { ConsultarService } from '../consultar/consultar.service';
+import { FormGroupDirective, NgForm } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
   styleUrls: ['./registrar.component.css']
 })
-export class RegistrarComponent implements OnInit {
 
+
+export class RegistrarComponent implements OnInit {
+  matcher = new MyErrorStateMatcher();
   registerForm = new FormGroup({
     nombre: new FormControl(''),
     apellido: new FormControl(''),
     cedula: new FormControl(''),
     telefono: new FormControl(''),
-    correo: new FormControl(''),
+    correo: new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ])
   })
-  proposito:String;
-  nombre:any;
+  proposito: String;
+  nombre: any;
   disableB: boolean = false;
   action: String;
   view: String = 'search';
   cedula: String;
   by: String = 'cedula';
   solicitudes: any;
-  solicitante:any;
+  solicitante: any;
 
 
 
@@ -35,10 +42,10 @@ export class RegistrarComponent implements OnInit {
 
   ngOnInit() {
   }
-  parsearFecha(fecha){
+  parsearFecha(fecha) {
     return new Date(fecha).toLocaleDateString("en-US");
-  
-    }
+
+  }
   changeView(value: String) {
 
     return this.view = value;
@@ -54,24 +61,31 @@ export class RegistrarComponent implements OnInit {
           this.changeView("solicitar");
         })
       } else {
-       
+        
         this.changeView("register")
       }
     });
-    }
-    saveSolicitud(){
-      this.register.saveSolicitud({proposito: this.proposito, cedula: this.cedula}).then((resp:any)=>{
-        console.log(resp);
-        this.search();
-        this.snackBar.open("Se ha registrado por el numero de expediente: " + resp,"Ocultar",{
-          duration:10000,
-        });
-      })    
-    }
-
+  }
+  saveSolicitud() {
+    this.register.saveSolicitud({ proposito: this.proposito, cedula: this.cedula }).then((resp: any) => {
+      console.log(resp);
+      
+      this.search();
+      
+      this.snackBar.open("Se ha registrado por el numero de expediente: " + resp, "Ocultar", {
+        duration: 10000,
+      });
+    })
+  }
+  
   save() {
+    if (this.registerForm.invalid) {
+      return this.snackBar.open('Por favor complete los campos requeridos', 'warn', {
+        duration: 3000
+      })
+    }
     this.disableB = true;
-    this.register.saveSolicitante(this.registerForm.value).then((resp:any) => {
+    this.register.saveSolicitante(this.registerForm.value).then((resp: any) => {
       console.log(resp);
       this.snackBar.open("Se ha registrado exitosamente con la C.I : " + resp.cedula, 'Ocultar', {
         duration: 10000,
@@ -82,6 +96,14 @@ export class RegistrarComponent implements OnInit {
       this.disableB = false;
     });
   }
-
 }
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
+
+
 

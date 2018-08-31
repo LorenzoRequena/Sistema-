@@ -9,7 +9,6 @@
 
 }
 
-
 table {
   width: 100%;
 }
@@ -31,6 +30,43 @@ margin-top: 10%
 
 }
 .button2{
-  margin-left: 44%;
+  margin-left: 17%;
   margin-top: 3%;
+}
+.chips-examples{
+  margin-left: 37%;
+  margin-bottom: 3%;
+}
+.example-select{
+  width: 16%;
+    margin-left: 37%;
+}
+
+.button-depart{
+  margin-left: 26%;
+}
+div .example-header-image {
+  background-image: url('/assets/Imagen/chavez.jpg');
+  background-size: cover;
+  
+}
+
+div .imagen{
+height: 10em;
+
+}
+div .card{
+  width: 44%;
+  margin-left: 25%;
+  text-align: center;
+  color: white;
+  background: red;
+  font-size: 24px;
+  margin-top: 2%;
+
+}
+
+.example-card{
+  width: 41%;
+  margin-left: 26%;
 }
