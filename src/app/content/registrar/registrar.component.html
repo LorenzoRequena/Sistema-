@@ -10,7 +10,7 @@
         <mat-grid-list cols="2" rowHeight="6:1">
             <mat-grid-tile>
               <mat-form-field>
-                <input matInput formControlName="cedula" placeholder="Cedula" maxlength="8">
+                <input matInput formControlName="cedula" (keypress)="numberOnly($event)" placeholder="Cedula" maxlength="8">
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>

@@ -86,36 +86,45 @@
   
   </div>
   
-  <div *ngIf="view=='reporteDepar'"  class="mat-elevation-z8">
-      <table mat-table [dataSource]="dataSource">
-        
-          <ng-container matColumnDef="departamento">
-              <th mat-header-cell *matHeaderCellDef> Departamento </th>
-              <td mat-cell *matCellDef="let element"> {{element.localizacion}} </td>
+  <div *ngIf="view=='reporteDepar'">
+      <div   class="mat-elevation-z8">
+ 
+          <table mat-table [dataSource]="dataSource">
+            
+              <ng-container matColumnDef="departamento">
+                  <th mat-header-cell *matHeaderCellDef> Departamento </th>
+                  <td mat-cell *matCellDef="let element"> {{element.localizacion}} </td>
+                </ng-container>
+      
+            <ng-container matColumnDef="expediente">
+              <th mat-header-cell *matHeaderCellDef> Nro de expediente </th>
+              <td mat-cell *matCellDef="let element"> {{element.expediente}} </td>
             </ng-container>
-  
-        <ng-container matColumnDef="expediente">
-          <th mat-header-cell *matHeaderCellDef> Nro de expediente </th>
-          <td mat-cell *matCellDef="let element"> {{element.expediente}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="proposito">
-          <th mat-header-cell *matHeaderCellDef> Proposito </th>
-          <td mat-cell *matCellDef="let element"> {{element.proposito}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="encargado">
-          <th mat-header-cell *matHeaderCellDef> Encargado </th>
-          <td mat-cell *matCellDef="let element"> {{element.encargado.nombre}} {{element.encargado.apellido}} </td>
-        </ng-container>
-    
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
-      </table>
-    
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  
-  
+        
+            <ng-container matColumnDef="proposito">
+              <th mat-header-cell *matHeaderCellDef> Proposito </th>
+              <td mat-cell *matCellDef="let element"> {{element.proposito}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="encargado">
+              <th mat-header-cell *matHeaderCellDef> Encargado </th>
+              <td mat-cell *matCellDef="let element"> {{element.encargado.nombre}} {{element.encargado.apellido}} </td>
+            </ng-container>
+        
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+          </table>
+        
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            
+      </div>
+     <div>
+       <mat-card class="card-example2" >
+         <span>Numero de expediente: {{this.counter}} </span>
+       </mat-card>
+     </div>  
+
   </div>
-  
+
+ 

@@ -17,10 +17,9 @@ import * as moment from 'moment';
 export class ReportesComponent implements OnInit {
   fechaA:any;
   fechaB:any;
- 
   displayedColumns = [ 'expediente', 'proposito', 'encargado'];
   displayedColumns2 = ['departamento','expediente', 'proposito','encargado']
-  
+  counter :number;
   dataClone: any;
   solicitudes: any;
   departamentoSelected = '';
@@ -47,12 +46,16 @@ export class ReportesComponent implements OnInit {
     {value: 'otrs-19', viewValue: 'Otros'}
   ];
   view: String = 'fecha';
+  
   dataSource: MatTableDataSource<any> = new MatTableDataSource([]);
   private paginator: MatPaginator;
   @ViewChild(MatPaginator)
+
   set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
+    console.log('donde esta mi paginator!!!!!')
     this.dataSource.paginator = this.paginator;
+    console.log(this.dataSource,'si funcionara?');
   }
   constructor(private reporte: ReporteService) {
       reporte.getAllSolicitudes().then((solicitudes: any) => {
@@ -68,13 +71,7 @@ export class ReportesComponent implements OnInit {
   
     console.log(this.dataSource, this.solicitudes);
   }
-  changeView(value: String) {
-   /* return this.view = value;
-    this.dataClone = this.solicitudes;
-    this.dataSource = new MatTableDataSource(this.solicitudes);
-    this.dataSource.paginator = this.paginator;
-  */
-  }
+
   parsearFecha(fecha){
     return new Date(fecha).toLocaleDateString("en-US");
   
@@ -82,7 +79,6 @@ export class ReportesComponent implements OnInit {
   generarReport() {
     const fechaA = this.fechaA.subtract(1, 'd') ;
     const fechaB = this.fechaB.add(1,'d');
-    
     console.log(fechaA,'esta es la fecha a' , fechaB);
     let resultado = this.solicitudes.filter((resp: any)=>{
       console.log(moment(resp.created).isBetween(fechaA, fechaB), resp.created, 'Moment evalue')
@@ -91,21 +87,23 @@ export class ReportesComponent implements OnInit {
     })
   
     this.change('reporte');
-    this.dataSource = resultado;
+    this.dataSource =  new  MatTableDataSource(resultado);
     this.dataSource.paginator = this.paginator
-     
+     this.counter = resultado.length;
   }
 
   generarReportDep() {
     console.log(this.departamentoSelected, 'current select value')
     let resultado = this.solicitudes.filter((resp: any)=>{
-      console.log('into filter')
+      
        return resp.localizacion === this.departamentoSelected;
     })
   
     this.change('reporteDepar');
-    this.dataSource = resultado;
+    this.dataSource =  new  MatTableDataSource(resultado);
     this.dataSource.paginator = this.paginator
+     this.counter = resultado.length;
+    
   }
   change(view:String){
     return this.view = view;

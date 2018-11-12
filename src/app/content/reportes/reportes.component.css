@@ -45,23 +45,13 @@ margin-top: 10%
 .button-depart{
   margin-left: 26%;
 }
-div .example-header-image {
-  background-image: url('/assets/Imagen/chavez.jpg');
-  background-size: cover;
-  
-}
 
-div .imagen{
-height: 10em;
-
-}
 div .card{
   width: 44%;
   margin-left: 25%;
   text-align: center;
   color: white;
   background: red;
-  font-size: 24px;
   margin-top: 2%;
 
 }
@@ -69,4 +59,13 @@ div .card{
 .example-card{
   width: 41%;
   margin-left: 26%;
+}
+
+ div .card-example2{
+  width: 22%;
+  margin-left: 36%;
+  background: red;
+  color: white;
+  margin-top: 3%;
+  text-align: center;
 }

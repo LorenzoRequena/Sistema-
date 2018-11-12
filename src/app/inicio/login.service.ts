@@ -16,8 +16,8 @@ export class LoginService {
   isUserLogged(){
     return this.isLogged.value
   }
-  loginUser(data: any): Observable<any> {
-    return this.http.post(this.url + '/user/login', data);
+  loginUser(data: any) {
+    return this.http.post(this.url + '/user/login', data).toPromise();
   }
 }
 

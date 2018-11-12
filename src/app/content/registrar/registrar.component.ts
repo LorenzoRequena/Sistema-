@@ -42,6 +42,17 @@ export class RegistrarComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  numberOnly(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+
+  }
+
+
   parsearFecha(fecha) {
     return new Date(fecha).toLocaleDateString("en-US");
 

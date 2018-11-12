@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovimientosService } from '../movimientos/movimientos.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-seguimiento',
@@ -12,8 +13,8 @@ export class SeguimientoComponent implements OnInit {
   nombre:any;
   view: String ='search';
   movimientos: any = [];
-  displayedColumns: any[] = ['expediente', 'encargado', 'usuario','departamento','fecha']
-  constructor(private consultar:MovimientosService) { }
+  displayedColumns: any[] = ['expediente', 'encargado','departamento','fecha']
+  constructor(private consultar:MovimientosService ,private mat:MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -25,12 +26,15 @@ changeView(value:String ){
 }
 search(){
   this.consultar.searchRespaldo(this.expediente).then(resp =>{
-    console.log(resp,typeof resp);
     this.expediente = null;
-    if (resp) {
-     this.movimientos = resp;
-     this.changeView('reporte')
-    
+    if(resp[0] && resp[0].expediente){
+      this.movimientos = resp;
+      this.changeView('reporte')
+    }else{
+      this.mat.open("Expediente no encontrado" , 'Salir', {
+        duration: 3000,
+      })
+      console.log("Expediente no encontrado!!!")
     }
     
    })
